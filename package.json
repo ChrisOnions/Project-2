@@ -11,9 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/ChrisOnions/Project-2.git"
   },
-  "keywords": [
-    "food"
-  ],
+  "keywords": [],
   "author": "",
   "license": "WTFPL",
   "bugs": {
@@ -27,6 +25,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
+    "handlebars": "^4.7.7",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   },
