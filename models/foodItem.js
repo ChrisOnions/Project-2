@@ -15,7 +15,6 @@ FoodItem.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     expiryDate: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -24,8 +23,11 @@ FoodItem.init(
         type: DataTypes.BOOLEAN
     },
     foodCategory: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'foodCategory',
+          key: 'id',
+      },
     },
     donated: {
         type: DataTypes.BOOLEAN,
@@ -47,7 +49,6 @@ FoodItem.init(
     brand: {
         type: DataTypes.STRING
     }
-
   },
   {
     sequelize,
