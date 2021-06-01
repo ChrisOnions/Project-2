@@ -13,5 +13,5 @@
 ```.env
 DB_NAME=food_waste_db
 DB_PASSWORD= 'Password Goes HERE'
-DB_USER=root
+DB_USER= root
 ```
