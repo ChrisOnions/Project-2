@@ -1,0 +1,79 @@
+/* * {border: 1px solid black;} */
+
+/* Darkmode if we want it  */
+/* https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8 */
+
+:root {
+  --Dark_mode: rgb(16, 16, 16);
+  --No_dark_mode: white;
+  --Taskbar: rgb(56, 29, 42);
+  --Taskbar_dm: rgb(28, 15, 19);
+  --Button: rgb(69, 105, 144);
+  --Button_dm: rgb(17, 75, 95);
+  --Text: black;
+  --Text_dm: white;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--Darkmode);
+}
+
+/*Header*/
+.header-container {
+  display: flex;
+  background-color: var(--Taskbar);
+  min-height: 60px;
+}
+.button-container {
+  min-width: 100%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  display: inline;
+}
+
+.button-nav {
+  color: var(--No_dark_mode);
+  padding: 5px;
+  border-radius: 10px;
+  float: left;
+  width: auto;
+  margin: 5px;
+}
+
+.hidden {
+  display: none;
+}
+.login {
+  float: right;
+}
+.project-title {
+  font-size: 1.5em;
+  text-shadow: 1.5px 1.5px var(--Text_dm);
+  color: var(--Button);
+  margin: 0 8px;
+  font-weight: bold;
+}
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2px;
+  font-size: 0.8em;
+  background-color: var(--Taskbar);
+  color: white;
+  position: fixed;
+  min-width: 100%;
+  left: 0;
+  bottom: 0;
+}
+/* Hovers  */
+
+button-nav:hover {
+  color: var(--Button);
+}
+/* Media Querys */
