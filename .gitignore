@@ -1,7 +1,3 @@
-<<<<<<< HEAD
 .gitignore
 .env
 node_modules
-=======
-.node_modules
->>>>>>> 3bf8b1d0f0fd89bbf90245d3565ce9f378b93ed0
