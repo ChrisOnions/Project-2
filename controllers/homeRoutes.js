@@ -17,9 +17,9 @@ router.get('/login', async (req, res) => {
 router.get('/logout', async (req, res) => {
 
   // if (req.session.logged_in) {
-  //   res.render('signup')
+  //   res.render('home')
   //   return
-  // } else { res.redirect('/login') }
+  // } else { res.redirect('/logout') }
   res.render('logout')
 })
 
