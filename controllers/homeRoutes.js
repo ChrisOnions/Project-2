@@ -14,13 +14,13 @@ router.get('/login', async (req, res) => {
   // } else { res.redirect('/login') }
   res.render('login')
 })
-router.get('/signup', async (req, res) => {
+router.get('/logout', async (req, res) => {
 
   // if (req.session.logged_in) {
   //   res.render('signup')
   //   return
   // } else { res.redirect('/login') }
-  res.render('signup')
+  res.render('logout')
 })
 
 router.get('/dashboard', async (req, res) => {
