@@ -1,4 +1,4 @@
-const FoodCategory = require("../models/foodCategory");
+const foodCategory = require("../models/foodCategory");
 
 const foodCategoryData = [
   {
@@ -29,6 +29,6 @@ const foodCategoryData = [
   },
 ];
 
-const seedFoodCategories = () => FoodCategory.bulkCreate(foodCategoryData);
+const seedFoodCategories = () => foodCategory.bulkCreate(foodCategoryData);
 
 module.exports = seedFoodCategories;
