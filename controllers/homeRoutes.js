@@ -14,6 +14,16 @@ router.get('/login', async (req, res) => {
   // } else { res.redirect('/login') }
   res.render('login')
 })
+
+router.get('/signup', async (req, res) => {
+
+  // if (req.session.logged_in) {
+  //   res.render('home')
+  //   return
+  // } else { res.redirect('/login') }
+  res.render('signup')
+})
+
 router.get('/logout', async (req, res) => {
 
   // if (req.session.logged_in) {
