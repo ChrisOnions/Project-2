@@ -22,7 +22,7 @@ FoodItem.init(
     isFrozen: {
       type: DataTypes.BOOLEAN,
     },
-    foodCategory: { //used
+    foodCategoryId: { //used
       type: DataTypes.INTEGER,
       references: {
         model: "foodCategory",
@@ -33,13 +33,13 @@ FoodItem.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    // foodBankId: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "foodBank",
-    //     key: "id",
-    //   },
-    // },
+    foodBankId: { //used
+      type: DataTypes.INTEGER,
+      references: {
+        model: "foodBank",
+        key: "id",
+      },
+    },
     quantity: {
       type: DataTypes.INTEGER,
     },
@@ -54,7 +54,7 @@ FoodItem.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "FoodItem",
+    modelName: "foodItem",
   }
 );
 

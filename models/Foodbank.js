@@ -41,7 +41,7 @@ FoodBank.init(
     sequelize,
     freezeTableName: true, // Removes plurals
     underscored: true,
-    modelName: "FoodBank",
+    modelName: "foodBank",
   }
 );
 

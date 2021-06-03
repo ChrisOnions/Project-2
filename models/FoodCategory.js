@@ -34,7 +34,7 @@ FoodCategory.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "foodcategory",
+    modelName: "foodCategory",
   }
 );
 

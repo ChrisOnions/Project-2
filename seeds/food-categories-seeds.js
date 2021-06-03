@@ -1,4 +1,4 @@
-const FoodCategory = require("../models/FoodCategory");
+const FoodCategory = require("../models/foodCategory");
 
 const foodCategoryData = [
   {
