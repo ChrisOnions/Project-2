@@ -8,6 +8,7 @@ const seedAll = async () => {
   await seedFoodCategories();
   console.log("\n----- FOOD CATEGORIES SEEDED -----\n");
 
+
   process.exit(0);
 };
 

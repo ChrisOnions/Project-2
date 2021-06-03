@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class FoodItem extends Model {}
+class FoodItem extends Model { }
 
 FoodItem.init(
   {
@@ -22,7 +22,7 @@ FoodItem.init(
     isFrozen: {
       type: DataTypes.BOOLEAN,
     },
-    foodCategory: {
+    foodCategory: { //used
       type: DataTypes.INTEGER,
       references: {
         model: "foodCategory",
@@ -33,13 +33,13 @@ FoodItem.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    foodBankId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "foodBank",
-        key: "id",
-      },
-    },
+    // foodBankId: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "foodBank",
+    //     key: "id",
+    //   },
+    // },
     quantity: {
       type: DataTypes.INTEGER,
     },
