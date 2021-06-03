@@ -1,6 +1,8 @@
+
+// import models
+const FoodCategory = require("./FoodCategory");
 const User = require('./user');
 const Food_items = require('./foodItem');
-const Food_Catagory = require('./foodCategory');
 const Food_bank = require('./foodbank');
 
 //Users dont relate to anything
@@ -38,3 +40,4 @@ Food_bank.belongsTo(Food_items, {
 // })
 
 module.exports = { User, Food_items, Food_bank, Food_Catagory };
+
