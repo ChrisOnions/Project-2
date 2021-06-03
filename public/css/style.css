@@ -1,4 +1,6 @@
-/* * {border: 1px solid black;} */
+* {
+  /* border: 1px solid black; */
+}
 
 /* Darkmode if we want it  */
 /* https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8 */
@@ -17,8 +19,12 @@
 body {
   height: 100vh;
   background-color: var(--Darkmode);
+  background-image: url("/assets/white-abstract-background_23-2148812993.jpg");
+  background-size: cover;
 }
 
+.background {
+}
 /*Header*/
 .header-container {
   display: flex;
@@ -30,15 +36,13 @@ body {
 }
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 ul li {
   display: inline;
 }
 
 .button-nav {
-  color: var(--No_dark_mode);
+  color: var(--Text);
   padding: 5px;
   border-radius: 10px;
   float: left;
@@ -51,13 +55,32 @@ ul li {
 }
 .login {
   float: right;
+  margin-right: 30px;
 }
 .project-title {
   font-size: 1.5em;
-  text-shadow: 1.5px 1.5px var(--Text_dm);
+  text-shadow: 1.5px 1.5px var(--Text);
   color: var(--Button);
   margin: 0 8px;
   font-weight: bold;
+}
+
+/* Login */
+
+.container-login {
+  border: 1px black solid;
+  margin: 50px 50px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+img {
+  height: 100vh;
+  width: auto;
+}
+.divide {
+  border-top: 3px solid #bbb;
+  margin: 2%;
 }
 /* Footer */
 .footer {
@@ -71,9 +94,21 @@ ul li {
   left: 0;
   bottom: 0;
 }
+.logo {
+  height: 150px;
+  /* max-width: 100px; */
+}
+
 /* Hovers  */
 
 button-nav:hover {
   color: var(--Button);
 }
 /* Media Querys */
+
+@media only screen and (max-width: 480px) {
+}
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 1024px) {
+}
