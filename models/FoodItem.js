@@ -22,6 +22,10 @@ FoodItem.init(
     isFrozen: {
       type: DataTypes.BOOLEAN,
     },
+    isFrozen: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     foodCategoryId: { //used
       type: DataTypes.INTEGER,
       references: {
