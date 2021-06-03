@@ -9,7 +9,6 @@ const User = require('../../models/user');
 router.post('/', async (req, res) => {
   try {
     console.log(req.body);
-    req.session.logged_in = false
     const userToDb = await User.create(
       {
         name: req.body.name,
@@ -18,10 +17,9 @@ router.post('/', async (req, res) => {
       });
 
     req.session.save(() => {
-      req.session.logged_in = true
+      req.session.logged_in = true;
       console.log(req.session);
       res.status(200).json(userToDb)
-
     })
 
   } catch (err) {
