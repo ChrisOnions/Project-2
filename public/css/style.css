@@ -24,6 +24,7 @@ body {
 }
 
 .background {
+  margin-bottom: 60px;
 }
 /*Header*/
 .header-container {
@@ -80,7 +81,7 @@ img {
 }
 .divide {
   border-top: 3px solid #bbb;
-  margin: 2%;
+  margin: auto 50px;
 }
 /* Footer */
 .footer {
