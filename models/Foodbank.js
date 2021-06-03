@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class FoodBank extends Model {}
+class FoodBank extends Model { }
 
 FoodBank.init(
   {
@@ -19,29 +19,29 @@ FoodBank.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    foodItemId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "foodItem",
-        key: "id",
-      },
-    },
+    // foodItemId: { // used
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "FoodItem",
+    //     key: "id",
+    //   },
+    // },
     quantity: {
       type: DataTypes.INTEGER,
     },
     donatedDate: {
       type: DataTypes.INTEGER,
     },
-    donatedByUserId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    // donatedByUserId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
   },
   {
     sequelize,
     freezeTableName: true, // Removes plurals
     underscored: true,
-    modelName: "FoodBank",
+    modelName: "foodBank",
   }
 );
 

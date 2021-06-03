@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class FoodItem extends Model {}
+class FoodItem extends Model { }
 
 FoodItem.init(
   {
@@ -22,7 +22,7 @@ FoodItem.init(
     isFrozen: {
       type: DataTypes.BOOLEAN,
     },
-    foodCategory: {
+    foodCategoryId: { //used
       type: DataTypes.INTEGER,
       references: {
         model: "foodCategory",
@@ -33,7 +33,7 @@ FoodItem.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    foodBankId: {
+    foodBankId: { //used
       type: DataTypes.INTEGER,
       references: {
         model: "foodBank",
@@ -54,7 +54,7 @@ FoodItem.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "FoodItem",
+    modelName: "foodItem",
   }
 );
 
