@@ -8,7 +8,7 @@ const helpers = require("./utils/helpers");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-// TODO: remove before commit
+// TODO: remove before final commit
 require("./models");
 
 const app = express();
