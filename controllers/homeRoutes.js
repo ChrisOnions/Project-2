@@ -60,9 +60,9 @@ router.get('/cart', async (req, res) => {
   res.render('cart')
 })
 //Last route
-router.get('*', async (req, res) => {
-  res.render('404')
-})
+// router.get('*', async (req, res) => {
+//   res.render('404')
+// })
 
 
 module.exports = router;
