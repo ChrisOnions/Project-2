@@ -22,7 +22,7 @@ FoodItem.init(
     isFrozen: {
       type: DataTypes.BOOLEAN,
     },
-    user_id: {
+    user_id: { //used
       type: DataTypes.INTEGER,
       references: {
         model: "user",
