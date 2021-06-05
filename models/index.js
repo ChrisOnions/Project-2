@@ -5,13 +5,13 @@ const foodBank = require("./foodBank");
 const foodItems = require("./foodItem");
 //users dont relate to anything
 
-// user.hasMany(foodItems, {
-//   foreignKey: ''
-// })
+user.hasMany(foodItems, {
+  foreignKey: 'user_id'
+})
 
-// foodItems.belongsTo(user, {
-//   foreignKey: ''
-// })
+foodItems.belongsToMany(user, {
+  through: "foodItemsId"
+})
 
 foodCategory.hasMany(foodItems, {
   foreignKey: "foodCategoryId",

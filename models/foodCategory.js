@@ -38,4 +38,5 @@ FoodCategory.init(
   }
 );
 
+// Add base range for items items in this category
 module.exports = FoodCategory;

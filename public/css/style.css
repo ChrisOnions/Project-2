@@ -22,8 +22,14 @@ body {
   background-image: url("/assets/white-abstract-background_23-2148812993.jpg");
   background-size: cover;
 }
-
+.errStatus {
+  height: 100vh;
+  background-color: var(--Darkmode);
+  background-image: url("/assets/404-pages.png");
+  background-size: cover;
+}
 .background {
+  margin-bottom: 60px;
 }
 /*Header*/
 .header-container {
@@ -80,7 +86,7 @@ img {
 }
 .divide {
   border-top: 3px solid #bbb;
-  margin: 2%;
+  margin: auto 50px;
 }
 /* Footer */
 .footer {
