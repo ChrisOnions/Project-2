@@ -1,4 +1,4 @@
-const { foodItems, user, foodCategory } = require('../models');
+const { foodItems, user, foodCategory, foodBank } = require('../models');
 const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
@@ -55,16 +55,14 @@ router.get('/cart', withAuth, async (req, res) => {
   const cartData = await foodItems.findAll({
     order: [['name', 'ASC']]
   })
-  const cart = cartData.map((project) => project.get(
+  const cart = cartData.map((data) => data.get(
     { plain: true }));
   //cart
   const catData = await foodCategory.findAll({
     order: [['name', 'ASC']]
   })
-  const category = catData.map((project) => project.get(
+  const category = catData.map((data) => data.get(
     { plain: true }));
-
-  console.log(category);
   res.render('cart', {
     category,
     cart,
@@ -72,6 +70,18 @@ router.get('/cart', withAuth, async (req, res) => {
   })
 })
 
+router.get('/Donate', withAuth, async (req, res) => {
+  const foodbank = await foodBank.findAll({
+    order: [['name', 'ASC']]
+  })
+  const locations = foodbank.map((data) => data.get(
+    { plain: true }));
+  console.log(locations);
+  res.render('donate', {
+    locations,
+    logged_in: req.session.logged_in
+  })
+})
 // Last route
 router.get('*', async (req, res) => {
   res.render('404')
