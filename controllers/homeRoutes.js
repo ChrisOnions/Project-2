@@ -1,64 +1,47 @@
+const withAuth = require('../utils/auth');
 const router = require('express').Router();
-// const withAuth = require('../utils/auth');
-
 
 router.get('/', async (req, res) => {
-  res.render('home')
+  try {
+    res.render('home', {
+      logged_in: req.session.logged_in
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
 })
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
 
-router.get('/login', async (req, res) => {
-
-  // if (req.session.logged_in) {
-  //   res.render('home')
-  //   return
-  // } else { res.redirect('/login') }
-  res.render('login')
-})
+  res.render('login');
+});
 
 router.get('/signup', async (req, res) => {
 
-  // if (req.session.logged_in) {
-  //   res.render('home')
-  //   return
-  // } else { res.redirect('/login') }
-  res.render('signup')
+  res.render('signup', {
+    logged_in: req.session.logged_in
+  })
 })
 
-router.get('/logout', async (req, res) => {
-
-  // if (req.session.logged_in) {
-  //   res.render('home')
-  //   return
-  // } else { res.redirect('/logout') }
+router.get('/logout', withAuth, async (req, res) => {
   res.render('logout')
 })
 
-router.get('/dashboard', async (req, res) => {
-
-  // if (req.session.logged_in) {
-  //   res.render('dashboard')
-  //   return
-  // } else { res.redirect('/login') }
-  res.render('dashboard')
-})
-router.get('/dashboard', async (req, res) => {
-
-  // if (req.session.logged_in) {
-  //   res.render('cart')
-  //   return
-  // } else { res.redirect('/login') }
-  res.render('dashboard')
+router.get('/dashboard', withAuth, async (req, res) => {
+  res.render('dashboard', {
+    logged_in: req.session.logged_in
+  })
 })
 
-
-router.get('/cart', async (req, res) => {
-
-  // if (req.session.logged_in) {
-  //   res.render('cart')
-  //   return
-  // } else { res.redirect('/login') }
-  res.render('cart')
+router.get('/cart', withAuth, async (req, res) => {
+  res.render('cart', {
+    logged_in: req.session.logged_in
+  })
 })
+
 //Last route
 // router.get('*', async (req, res) => {
 //   res.render('404')

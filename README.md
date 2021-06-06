@@ -17,8 +17,14 @@ DB_USER= root
 ```
 
 <!--
-  Future DEV
+Need NOW
 
 // Add base range for foodCagegorys exp time (ie. 3 days, 2 months )
+---
+// Create Hooks on items that get the category exp time and starts a countdown on the items when added to DB
+
+Ref : https://www.w3schools.com/howto/howto_js_countdown.asp
+---
+
 
 -->
