@@ -1,4 +1,4 @@
-const { foodItems, user } = require('../models');
+const { foodItems, user, foodCategory } = require('../models');
 const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
@@ -51,12 +51,22 @@ router.get('/dashboard', withAuth, async (req, res) => {
 })
 
 router.get('/cart', withAuth, async (req, res) => {
+  //Cart
   const cartData = await foodItems.findAll({
     order: [['name', 'ASC']]
   })
-  const cart = cartData.map((project) => project.get({ plain: true }));
-  console.log(cart);
+  const cart = cartData.map((project) => project.get(
+    { plain: true }));
+  //cart
+  const catData = await foodCategory.findAll({
+    order: [['name', 'ASC']]
+  })
+  const category = catData.map((project) => project.get(
+    { plain: true }));
+
+  console.log(category);
   res.render('cart', {
+    category,
     cart,
     logged_in: req.session.logged_in
   })
