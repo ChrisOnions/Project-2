@@ -1,33 +1,33 @@
 // import models
 const foodCategory = require("./foodCategory");
-const user = require('./user');
-const foodBank = require('./foodBank');
-const foodItems = require('./foodItem');
+const user = require("./user");
+const foodBank = require("./foodBank");
+const foodItems = require("./foodItem");
 //users dont relate to anything
 
-// user.hasMany(foodItems, {
-//   foreignKey: ''
-// })
+user.hasMany(foodItems, {
+  foreignKey: 'user_id'
+})
 
-// foodItems.belongsTo(user, {
-//   foreignKey: ''
-// })
+foodItems.belongsToMany(user, {
+  through: "foodItemsId"
+})
 
 foodCategory.hasMany(foodItems, {
-  foreignKey: 'foodCategoryId'
-})
+  foreignKey: "foodCategoryId",
+});
 
 foodItems.belongsTo(foodCategory, {
-  foreignKey: 'foodCategoryId'
-})
+  foreignKey: "foodCategoryId",
+});
 
 foodBank.hasMany(foodItems, {
-  foreignKey: 'foodBankId'
-})
+  foreignKey: "foodBankId",
+});
 
 foodItems.belongsTo(foodBank, {
-  foreignKey: 'foodBankId'
-})
+  foreignKey: "foodBankId",
+});
 
 // user.belongsTo(foodBank, {
 //   foreignKey: ''
@@ -38,4 +38,3 @@ foodItems.belongsTo(foodBank, {
 // })
 
 module.exports = { foodCategory, user, foodBank, foodItems };
-
