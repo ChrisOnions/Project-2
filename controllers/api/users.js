@@ -16,8 +16,9 @@ router.post('/', async (req, res) => {
 
     if (userToDb) {
       req.session.save(() => {
-        req.session.logged_in = true;
+
         req.session.user_id = userToDb.id
+        req.session.logged_in = true;
       })
       res.status(200).json(userToDb)
       res.render('home')
@@ -63,7 +64,7 @@ router.post('/login', async (req, res) => {
 })
 
 //http://localhost:3001/api/users/logout
-router.post('/logout', (req, res) => {
+router.delete('/logout', (req, res) => {
   if (req.session.logged_in) {
 
     req.session.destroy(() => {
