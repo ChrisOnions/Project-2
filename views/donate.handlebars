@@ -1,0 +1,12 @@
+<section>
+  <div>
+    <p>What would you like to Donate to?</p>
+  </div>
+</section>
+<section>
+  <div>
+    {{#each locations as |location|}}
+      <p>{{location.name}}: {{location.address}}</p>
+    {{/each}}
+  </div>
+</section>
