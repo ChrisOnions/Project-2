@@ -1,0 +1,19 @@
+{{!-- Cart items --}}
+<div class="container-login">
+  {{#each cart as |carts|}}
+    <div>
+      {{carts.name}}
+      {{carts.brand}}
+      <label class="align">Two
+        <input type="checkbox" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <br />
+  {{/each}}
+</div>
+{{!-- Categorys --}}
+<div class="container-half">
+{{#each category as |categorys|}}
+{{/category}}
+</div>

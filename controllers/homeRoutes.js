@@ -1,3 +1,4 @@
+const { foodItems, user } = require('../models');
 const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
@@ -31,21 +32,43 @@ router.get('/logout', withAuth, async (req, res) => {
 })
 
 router.get('/dashboard', withAuth, async (req, res) => {
-  res.render('dashboard', {
-    logged_in: req.session.logged_in
-  })
+  try {
+    dashData = await user.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: foodItems }]
+    })
+    const dashDataPlain = dashData.get({ plain: true });
+
+    res.render('dashboard', {
+      dashDataPlain,
+      logged_in: req.session.logged_in,
+      isexpandable: req.session.isexpandable
+    })
+  } catch (err) {
+    //display modal?
+    res.status(404).json(err)
+  }
 })
 
 router.get('/cart', withAuth, async (req, res) => {
+  const cartData = await foodItems.findAll({
+    order: [['name', 'ASC']]
+  })
+  const cart = cartData.map((project) => project.get({ plain: true }));
+  console.log(cart);
   res.render('cart', {
+    cart,
     logged_in: req.session.logged_in
   })
 })
 
-//Last route
-// router.get('*', async (req, res) => {
-//   res.render('404')
-// })
+// Last route
+router.get('*', async (req, res) => {
+  res.render('404')
+})
 
 
 module.exports = router;
+
+
+
