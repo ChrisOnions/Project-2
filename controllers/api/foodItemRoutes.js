@@ -94,4 +94,26 @@ router.delete('/:id', (req, res) => {
 });
 
 
+// GET all items
+router.get('/', (req, res) => {
+  FoodItem.findAll().then((foodData) => {
+    res.json(foodData);
+  });
+});
+
+// GET a food item
+router.get('/:id', (req, res) => {
+  // Get one book from the book table
+  FoodItem.findOne(
+    {
+      where: { 
+        id: req.params.id 
+      },
+    }
+  ).then((foodData) => {
+    res.json(foodData);
+  });
+});
+
+
 module.exports = router;
