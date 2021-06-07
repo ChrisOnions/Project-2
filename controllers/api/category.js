@@ -1,23 +1,23 @@
 const router = require('express').Router();
-const { foodCategory, foodItems } = require('../../models');
+const { foodCategory } = require('../../models');
 
 
 // " C R U D "
 // Create new Category
 
 router.post('/', async (req, res) => {
+  const { is_perishable, name } = req.body
   try {
     const newCat = await foodCategory.create(
       {
-        name: req.body.name,
-        is_perishable: req.body.is_perishable
+        name,
+        is_perishable
       }
     )
-    res.status(200).json(newCat)
+    res.json(newCat)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
-
 })
 
 // Read Category 
@@ -25,36 +25,32 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const getCat = await foodCategory.findAll()
-    res.status(200).json(getCat)
+    res.json(getCat)
     console.log(getCat);
-  } catch (err) { res.status(400).json(err) }
+  } catch (err) { res.status(500).json(err) }
 })
 
-// Get Cat by id
+// Get Category by id
 router.get('/:id', async (req, res) => {
+  const { id } = req.params
   try {
-    const getCatid = await foodCategory.findByPk(req.params.id
-      // {
-      //   id: {
-      //     include: [{ models: foodItems }]
-      //   }
-      // }
-    )
-    res.status(200).json(getCatid)
+    const cat = await foodCategory.findByPk(id)
+    res.json(cat)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
 // Delete Category
 router.delete('/:id', async (req, res) => {
+  const { id } = req.params
   try {
     const deleteCat = await foodCategory.destroy({
       where: {
-        id: req.params.id
+        id
       }
     })
-    console.log(req.params.id);
+
     if (!deleteCat) {
       res.status(404).json("Cat Not Found");
       return;
@@ -67,16 +63,18 @@ router.delete('/:id', async (req, res) => {
 
 // Update Category
 router.put('/:id', async (req, res) => {
+  const { id } = req.params
   try {
-    const updateCat = await foodCategory.update(
+    const updatedCat = await foodCategory.update(
       {
         where: {
-          id: req.params.id,
+          id
         }
       }
     )
+    res.status(204).json(updatedCat)
   } catch (err) {
-    res.status(400).json(updateCat)
+    res.status(400).json(updatedCat)
   }
 })
 
