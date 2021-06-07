@@ -51,9 +51,7 @@ router.post('/create', async (req, res) => {
   }
 });
 
-// Updates book based on its isbn
-router.put('/:id', (req, res) => {
-  // Calls the update method on the Book model
+router.put('/:id', async (req, res) => {
   FoodItem.update(
     {
       name: req.body.name,
@@ -66,7 +64,6 @@ router.put('/:id', (req, res) => {
       already_purchased: req.body.already_purchased
     },
     {
-      // Gets the books based on the isbn given in the request parameters
       where: {
         id: req.params.id,
       },
@@ -80,7 +77,7 @@ router.put('/:id', (req, res) => {
 });
 
 // Delete route for a food item with a matching id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // Looks for the food item based on id given in the request parameters and deletes the instance from the database
   FoodItem.destroy({
     where: {
@@ -95,15 +92,14 @@ router.delete('/:id', (req, res) => {
 
 
 // GET all items
-router.get('/', (req, res) => {
+router.get('/', async(req, res) => {
   FoodItem.findAll().then((foodData) => {
     res.json(foodData);
   });
 });
 
 // GET a food item
-router.get('/:id', (req, res) => {
-  // Get one book from the book table
+router.get('/:id', async(req, res) => {
   FoodItem.findOne(
     {
       where: { 
