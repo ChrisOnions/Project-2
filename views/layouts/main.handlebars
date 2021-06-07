@@ -21,8 +21,8 @@
             {{/if}}
             <li><a class="button-nav" href="/cart">Cart</a></li>
             {{#if logged_in}}
-              <li><a class="button-nav login" href="/Donate">Donate</a></li>
               <li><a class="button-nav login" href="/logout">Logout</a></li>
+              <li><a class="button-nav" href="/Donate">Donate</a></li>
             {{else}}
               <li><a class="button-nav login" href="/login">Login</a></li>
             {{/if}}
@@ -33,7 +33,7 @@
     </header>
     <div class="divide"></div>
     {{{body}}}
-
+    <br />
     <footer>
       <div class="footer">© Feet Go here</div>
     </footer>
