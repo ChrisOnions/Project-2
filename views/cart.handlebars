@@ -1,0 +1,20 @@
+<div class="container-login">
+  {{#each cart as |carts|}}
+    <div>
+      {{carts.name}}
+      {{carts.brand}}
+      <label class="align">Two
+        <input type="checkbox" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <br />
+
+  {{/each}}
+</div>
+<div class="container-login">
+  {{#each category as |categorys|}}
+    <p>{{categorys.name}}</p>
+    <p>{{exp}}</p>
+  {{/each}}
+</div>

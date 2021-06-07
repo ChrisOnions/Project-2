@@ -70,6 +70,18 @@ ul li {
   margin: 0 8px;
   font-weight: bold;
 }
+/* buttons */
+button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--Taskbar);
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
 
 /* Login */
 
@@ -99,15 +111,80 @@ img {
   min-width: 100%;
   left: 0;
   bottom: 0;
+  margin-top: 20px;
+  min-height: 10px;
+  clear: both;
 }
 .logo {
   height: 150px;
   /* max-width: 100px; */
 }
 
+/* Modal --------------- */
+.modal,
+.modal-box {
+  z-index: 900;
+}
+
+.modal-sandbox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+}
+
+.modal-box {
+  position: relative;
+  width: 70%;
+  max-width: 920px;
+  margin: 100px auto;
+}
+
+.modal-header {
+  padding: 20px 20px;
+  background: var(--Button_dm);
+  color: #ffffff;
+}
+
+.modal-body {
+  background: #eceff1;
+  padding: 30px 40px;
+}
+
+/* Close Button */
+.close-modal {
+  text-align: right;
+  cursor: pointer;
+}
+
+.modal-trigger:hover {
+  padding: 20px 60px;
+}
+.card {
+  border: 0;
+}
+/* Dasboard */
+
+.user-profile {
+  margin: 30px;
+}
 /* Hovers  */
 
-button-nav:hover {
+button:hover {
   color: var(--Button);
 }
 /* Media Querys */
@@ -118,3 +195,4 @@ button-nav:hover {
 }
 @media only screen and (max-width: 1024px) {
 }
+/* delete this  */

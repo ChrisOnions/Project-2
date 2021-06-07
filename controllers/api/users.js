@@ -1,14 +1,12 @@
 const router = require('express').Router();
 const User = require('../../models/user');
-// create new user via signup
-// delete a user
+
 // C.R.U.D
 
 // http://localhost:3001/api/users/
 // Create user 
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body);
     const userToDb = await User.create(
       {
         name: req.body.name,
@@ -16,16 +14,17 @@ router.post('/', async (req, res) => {
         password: req.body.password
       });
 
-    req.session.save(() => {
-      req.session.logged_in = true;
-      req.session.user_id = user_id
-      console.log(req.session);
-      res.status(200).json(userToDb)
-    })
+    if (userToDb) {
+      req.session.save(() => {
 
+        req.session.user_id = userToDb.id
+        req.session.logged_in = true;
+      })
+      res.status(200).json(userToDb)
+      res.render('home')
+    }
   } catch (err) {
     res.status(400).json(err)
-    console.log("shit");
   }
 })
 
@@ -33,7 +32,6 @@ router.post('/', async (req, res) => {
 // Read
 router.post('/login', async (req, res) => {
   try {
-    console.log("here?");
     const userData = await User.findOne(
       {
         where: {
@@ -42,15 +40,14 @@ router.post('/login', async (req, res) => {
       })
 
     if (!userData) {
-      res.status(400).json({ message: 'Incorrect email or password, please try again' })
+      res.status(404).send({ message: "Sorry please sign up" })
       return
     }
-    console.log(userData);
+
     const passwordValid = await userData.checkPassword(req.body.password)
-    console.log(passwordValid);
+
     if (!passwordValid) {
-      console.log("info?");
-      res.status(400).json({ message: 'Incorrect email or password, please try again' })
+      res.status(400).send({ message: 'Incorrect email or password, please try again' })
       return
     }
 
@@ -67,18 +64,23 @@ router.post('/login', async (req, res) => {
 })
 
 //http://localhost:3001/api/users/logout
-router.post('/logout', (req, res) => {
+router.delete('/logout', (req, res) => {
   if (req.session.logged_in) {
+
     req.session.destroy(() => {
+
       res.status(204).end();
     });
-
   } else {
+
     res.status(404).end();
   }
 });
 // Update
 // Delete
+
+// Display user Data 
+
 
 
 module.exports = router;
