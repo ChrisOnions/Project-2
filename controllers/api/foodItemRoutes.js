@@ -69,9 +69,9 @@ router.put('/:id', async (req, res) => {
       },
     }
   )
-    .then((updatedBook) => {
+    .then((updatedFood) => {
       // Sends the updated food item as a json response
-      res.json(updatedBook);
+      res.json(updatedFood);
     })
     .catch((err) => res.json(err));
 });
