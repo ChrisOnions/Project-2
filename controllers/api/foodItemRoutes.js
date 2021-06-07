@@ -21,7 +21,7 @@ router.post('/create', async (req, res) => {
         res.status(200).json(foodItem);
     } else {
       //update the food
-      FoodItem.update(
+     const foodItem =  FoodItem.update(
         {
           name: req.body.name,
           expiry_date: req.body.expiry_date,
@@ -37,13 +37,9 @@ router.post('/create', async (req, res) => {
           where: {
             id: foodData.id,
           },
-        }
-      )
-        .then((updatedItem) => {
-          // Sends the updated food as a json response
-          res.json(updatedItem);
-        })
-        .catch((err) => res.json(err));
+        });
+        res.status(200).json(foodItem);
+  
     }
 
   } catch (err) {
