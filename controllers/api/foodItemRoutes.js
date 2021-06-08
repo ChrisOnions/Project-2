@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
   const { id } =  req.params;
   const { name, expiry_date,quantity,brand, food_category_id, donated, is_frozen,already_purchased} = req.body;
   try{
-   const updatedFood =  await FoodItem.update(
+   const foodItem =  await FoodItem.update(
       {
         name,
         expiry_date,
@@ -66,9 +66,9 @@ router.put('/:id', async (req, res) => {
           id
         },
       });
-    res.json(updatedFood);
+    res.status(200).json(foodItem);
   } catch(err) {
-    res.json(err);
+    res.status(500).json(err);
   }
   
 });
@@ -78,14 +78,14 @@ router.delete('/:id', async (req, res) => {
   // Looks for the food item based on id given in the request parameters and deletes the instance from the database
   const { id } =  req.params;
   try{
-    const deletedItem = await FoodItem.destroy({
+    const foodItem = await FoodItem.destroy({
       where: {
         id
       },
     })
-    res.json(deletedItem)
+    res.json(foodItem)
   }catch( err){
-    res.json(err)
+    res.status(500).json(err);
   }
 
 });
@@ -93,22 +93,22 @@ router.delete('/:id', async (req, res) => {
 
 // GET all items
 router.get('/', async(req, res) => {
-  const foodData = await FoodItem.findAll().get({ plain: true });
-  res.json(foodData)
+  const foodItems = await FoodItem.findAll().get({ plain: true });
+  res.json(foodItems)
 });
 
 // GET a food item
 router.get('/:id', async(req, res) => {
   const { id } =  req.params;
   
-  const foodData = await FoodItem.findOne(
+  const foodItem = await FoodItem.findOne(
     {
       where: { 
         id
       },
     }
   ).get({plain: true})
-  res.json(foodData)
+  res.json(foodItem)
 
 });
 
