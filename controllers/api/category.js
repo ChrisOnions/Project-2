@@ -4,19 +4,19 @@ const { foodCategory } = require('../../models');
 
 // " C R U D "
 // Create new Category
-
+//http://localhost:3001/api/category/
 router.post('/', async (req, res) => {
   const { is_perishable, name } = req.body
   try {
-    const newCat = await foodCategory.create(
+    const Category = await foodCategory.create(
       {
         name,
         is_perishable
       }
-    )
-    res.json(newCat)
+    ).get({ plain: true });
+    res.json(Category)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err)
   }
 })
 
@@ -24,57 +24,59 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const getCat = await foodCategory.findAll()
-    res.json(getCat)
-    console.log(getCat);
-  } catch (err) { res.status(500).json(err) }
+    const Category = await foodCategory.findAll().get({ plain: true });
+    res.json(Category)
+  } catch (err) { res.status(400).json(err) }
 })
 
 // Get Category by id
+
 router.get('/:id', async (req, res) => {
   const { id } = req.params
   try {
-    const cat = await foodCategory.findByPk(id)
-    res.json(cat)
+    const Category = await foodCategory.findByPk(id).get({ plain: true });
+    res.json(Category)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err)
   }
 })
 
 // Delete Category
+
 router.delete('/:id', async (req, res) => {
   const { id } = req.params
   try {
-    const deleteCat = await foodCategory.destroy({
+    const Category = await foodCategory.destroy({
       where: {
         id
       }
-    })
+    }).get({ plain: true });
 
-    if (!deleteCat) {
-      res.status(404).json("Cat Not Found");
+    if (!Category) {
+      res.status(404).json("Category Not Found");
       return;
     }
-    res.status(200).json(deleteCat)
+    res.json(Category)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err)
   }
 })
 
 // Update Category
+
 router.put('/:id', async (req, res) => {
   const { id } = req.params
   try {
-    const updatedCat = await foodCategory.update(
+    const Category = await foodCategory.update(
       {
         where: {
           id
         }
       }
-    )
-    res.status(204).json(updatedCat)
+    ).get({ plain: true });
+    res.status(204).json(Category)
   } catch (err) {
-    res.status(400).json(updatedCat)
+    res.status(400).json(err)
   }
 })
 

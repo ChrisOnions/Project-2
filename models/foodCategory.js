@@ -38,7 +38,4 @@ FoodCategory.init(
   }
 );
 
-// TODO:
-// Add handling to ensure category is unique
-// Add base range for items items in this category
 module.exports = FoodCategory;

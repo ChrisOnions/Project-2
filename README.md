@@ -91,5 +91,7 @@ Need NOW
 Ref : https://www.w3schools.com/howto/howto_js_countdown.asp
 ---
 
-
+// TODO:
+// Add handling to ensure category is unique
+// Add base range for items in this category
 -->

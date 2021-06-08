@@ -3,7 +3,7 @@ const foodItem = require("../models/FoodItem");
 const foodItemData = [
   {
     name: "Full-cream Milk",
-    expiryDate: 17 / 06 / 2021,
+    expiryDate: '2021-06-17',
     isFrozen: false,
     foodCategoryId: 4,
     quantity: 1,
@@ -12,7 +12,7 @@ const foodItemData = [
   },
   {
     name: "Raw beef steak",
-    expiryDate: 8 / 06 / 2021,
+    expiryDate: '2021-08-17',
     isFrozen: false,
     foodCategoryId: 1,
     quantity: 2,
@@ -21,7 +21,7 @@ const foodItemData = [
   },
   {
     name: "Cooked Salmon",
-    expiryDate: 16 / 06 / 2021,
+    expiryDate: '2021-06-16',
     isFrozen: false,
     foodCategoryId: 2,
     quantity: 3,
@@ -30,7 +30,7 @@ const foodItemData = [
   },
   {
     name: "Eggs",
-    expiryDate: 13 / 06 / 2021,
+    expiryDate: '2021-07-13',
     isFrozen: false,
     foodCategoryId: 5,
     quantity: 12,
@@ -39,7 +39,7 @@ const foodItemData = [
   },
   {
     name: "White Bread Loaf",
-    expiryDate: 10 / 06 / 2021,
+    expiryDate: '2021-06-10',
     isFrozen: false,
     foodCategoryId: 6,
     quantity: 1,
@@ -49,7 +49,7 @@ const foodItemData = [
   },
   {
     name: "Pepsi cans",
-    expiryDate: 03 / 12 / 2021,
+    expiryDate: '2023-03-12',
     isFrozen: false,
     foodCategoryId: 8,
     quantity: 24,
@@ -58,7 +58,7 @@ const foodItemData = [
   },
   {
     name: "Brussel Sprouts",
-    expiryDate: 03 / 08 / 2021,
+    expiryDate: '2021-08-21',
     isFrozen: false,
     foodCategoryId: 7,
     quantity: 20,
@@ -67,7 +67,7 @@ const foodItemData = [
   },
   {
     name: "Apples",
-    expiryDate: 7 / 06 / 2021,
+    expiryDate: '2021-06-17',
     isFrozen: false,
     foodCategoryId: 7,
     quantity: 5,

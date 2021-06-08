@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
 
     if (user) {
       req.session.save(() => {
-
         req.session.user_id = user.id
         req.session.logged_in = true;
         res.status(200).json({ email, name })
@@ -31,32 +30,32 @@ router.post('/', async (req, res) => {
 //http://localhost:3001/api/users/login
 // Read
 router.post('/login', async (req, res) => {
-  const { email } = req.body
+  const { email, password } = req.body
   try {
-    const userData = await User.findOne(
+    const user = await User.findOne(
       {
         where: {
           email
         }
-      })
+      }).get({ plain: true });
 
-    if (!userData) {
+    if (!user) {
       res.status(401).send({ message: "Incorrect email or password, please try again" })
       return
     }
 
-    const passwordValid = await userData.checkPassword(req.body.password)
+    const validPassword = await user.checkPassword(password)
 
-    if (!passwordValid) {
+    if (!validPassword) {
       res.status(401).send({ message: 'Incorrect email or password, please try again' })
       return
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = user.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.status(200).json({ email, name: user.name })
 
     });
   } catch (err) {
