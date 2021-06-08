@@ -1,28 +1,33 @@
-    <section class="slider_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="full">
-                        {{#if logged_in}}
-                        <ul>
-                            {{#each foodItems as |item|}}
-                            <li>{{item.name}} expires {{item.expiresIn}}</li>
-                            
-                            {{/each}}
+<div class="home-page container">
 
-                        </ul>
-                        {{else}}
-                        <div>
-                            <h1 class="cur" >Reduce<br>Food Waste</h1>
+<div class="article-continer">
+    <h1 class="cur" >Food Waste in Australia</h1>
+    <p class="text">Here in Australia, 7.3 million tonnes of food is lost or wasted every year. And while a large proportion of this food is still perfectly edible, around 5 million Australians are going hungry.</p>
+    <p class="text"></p>On a global scale, 690 million people across the globe were affected by hunger in 2019, a number expected to rise sharply as a result of COVID-19, and three billion people were unable to afford a healthy diet.</p>
+    <p class="text"></p>While worldwide hunger continues to rise, an estimated 931 million tonnes of food, or 17% of total food available to consumers in 2019, went into the waste bins of households, retailers, restaurants and other food services – the weight of this waste equals that of 23 million fully loaded 40-tonne trucks — bumper-to-bumper, enough to circle the Earth 7 times!</p>
+    <br>
+    <a class="learn-more-button" href="https://www.foodbank.org.au/food-waste-facts-in-australia/?state=vic" target="_blank">Learn More!</a>
+</div>
 
-                            <p class="text">Nearly one-third of all food produced in the world is discarded or wasted for various reasons. That equates to nearly 1.3 billion tons every year</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img class="img" src="/assets/food_waste_heroes.jpg" alt="404">
-                        </div>div>
-                        {{/if}}
-                        
-                </div>
-            </div>
+<div class="action-container">
+    <div class="background-image">
+        {{#if logged_in}}
+        <div class="container-exp-food">
+            <h3>Food Expiring Soon</h3><a class="donate-button" href="/Donate">Donate</a>
+            <ul class="exp-ul">
+                {{#each foodItems as |item|}}
+                <li class="exp-list">{{item.name}} expires {{item.expiresIn}}</li>
+                
+                {{/each}}
+
+            </ul>
+        
         </div>
-    </section>
+        {{else}}
+        <div class="container-exp-food">
+            <h3><a class="signup" href="/signup"> Signup</a> today and start reducing your food waste</h3>
+        </div>
+        {{/if}}
+    </div>           
+</div>
+</div>

@@ -100,6 +100,11 @@ img {
   border-top: 3px solid #bbb;
   margin: auto 50px;
 }
+/* Signup */
+.signup {
+  color: rgb(18, 126, 6);
+}
+
 /* Footer */
 .footer {
   text-align: center;
@@ -182,10 +187,94 @@ img {
 .user-profile {
   margin: 30px;
 }
+/* Home Page */
+.home-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+}
+
+.article-continer {
+  flex-grow: 1;
+  margin-right: 50px;
+}
+
+.action-container {
+  flex-grow: 2;
+}
+
+.learn-more-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgb(18, 126, 6);
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  margin: 10px;
+}
+
+.background-image {
+  background-image: url("/assets/food_waste_heroes.jpg");
+  min-width: 480px;
+  min-height: 400px;
+  max-width: 800px;
+  max-height: 650px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.container-exp-food {
+  border: 1px black solid;
+  margin: 50px 50px;
+  padding: 10px 20px 20px;
+  border-radius: 5px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  align-content: center;
+  background-color: rgb(235, 226, 226);
+  width: 420px;
+  height: auto;
+}
+.container-exp-food h3 {
+  padding: 2%;
+  display: inline;
+}
+
+/* User Home Page */
+
+.donate-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: red;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+
+.exp-list {
+  display: list-item;
+  padding: 2%;
+}
+
+.exp-ul {
+  padding: 0;
+  margin: 0;
+}
+
 /* Hovers  */
 
 button:hover {
   color: var(--Button);
+}
+
+.signup:hover {
+  text-decoration: none;
+  color: rgb(17, 65, 11);
 }
 /* Media Querys */
 
