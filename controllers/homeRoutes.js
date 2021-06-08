@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     const foodItemData = await foodItems.findAll({ raw: true });
     // Add in {user_id: } to show only  items for currently logged in user
-   
+
     res.render('home', {
       logged_in: req.session.logged_in,
       foodItems: foodItemData.map((item) => {
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
       }),
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 })
 

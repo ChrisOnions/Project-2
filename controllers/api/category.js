@@ -2,9 +2,10 @@ const router = require('express').Router();
 const { foodCategory } = require('../../models');
 
 
-// " C R U D "
-// Create new Category
+//  C R U D 
 //http://localhost:3001/api/category/
+// Create new Category
+
 router.post('/', async (req, res) => {
   const { is_perishable, name } = req.body
   try {
@@ -16,7 +17,7 @@ router.post('/', async (req, res) => {
     ).get({ plain: true });
     res.json(Category)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
@@ -26,7 +27,7 @@ router.get('/', async (req, res) => {
   try {
     const Category = await foodCategory.findAll().get({ plain: true });
     res.json(Category)
-  } catch (err) { res.status(400).json(err) }
+  } catch (err) { res.status(500).json(err) }
 })
 
 // Get Category by id
@@ -37,7 +38,7 @@ router.get('/:id', async (req, res) => {
     const Category = await foodCategory.findByPk(id).get({ plain: true });
     res.json(Category)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
@@ -58,7 +59,7 @@ router.delete('/:id', async (req, res) => {
     }
     res.json(Category)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
@@ -76,7 +77,7 @@ router.put('/:id', async (req, res) => {
     ).get({ plain: true });
     res.status(204).json(Category)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 

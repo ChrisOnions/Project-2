@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     ).get({ plain: true });
     res.json(bank)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
   try {
     const Bank = await foodBank.findAll().get({ plain: true });
     res.json(Bank)
-  } catch (err) { res.status(400).json(err) }
+  } catch (err) { res.status(500).json(err) }
 })
 
 // Get one food bank
@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
     const Bank = await foodBank.findByPk(id).get({ plain: true });
     res.json(Bank)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
@@ -55,7 +55,7 @@ router.put('/:id', async (req, res) => {
     ).get({ plain: true });
     res.status(204).json(Bank)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
@@ -75,10 +75,10 @@ router.delete('/:id', async (req, res) => {
     }
     res.json(Bank)
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
-
+module.exports = router;
 // name,
 // address, 
 // foodItemId,
