@@ -100,16 +100,19 @@ router.get('/', async(req, res) => {
 // GET a food item
 router.get('/:id', async(req, res) => {
   const { id } =  req.params;
-  
-  const foodItem = await FoodItem.findOne(
-    {
-      where: { 
-        id
-      },
-    }
-  ).get({plain: true})
-  res.json(foodItem)
-
+  try{
+    const foodItem = await FoodItem.findOne(
+      {
+        where: { 
+          id
+        },
+      }
+    ).get({plain: true})
+    res.json(foodItem)
+  } 
+  catch(err){
+    res.status(500).json(err);
+  }
 });
 
 
