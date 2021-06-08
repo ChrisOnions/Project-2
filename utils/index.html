@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,50 +9,37 @@
   </head>
   <body>
     <!--  -->
-    <header>
-      <section class="header-container">
-        <div  class="button-container">
+    <header class="background">
+      <div class="header-container"></div>
+      <section>
+        <div class="button-container">
+          <img class="logo" src="../public/assets/Clever-Waste.png" alt="404" />
           <ul>
-            <div class="project-title">Project 1</div>
-            <li><a class="button-nav" href="/home">Home</a></li>
+            <li><a class="button-nav" href="/">Home</a></li>
             <li><a class="button-nav" href="/dashboard">Dashboard</a></li>
             <li><a class="button-nav" href="/cart">Cart</a></li>
+            <li><a class="button-nav login" href="/Donate">Donate</a></li>
+            <li><a class="button-nav login" href="/logout">Logout</a></li>
             <li><a class="button-nav login" href="/login">Login</a></li>
-            <li>
-              <a class="button-nav hidden login" href="/logout">Logout</a>
-            </li>
           </ul>
         </div>
       </section>
     </header>
-    <!-- {{{body}}} -->
-    <section>
-      <h1></h1>
-      <div>
-        <div>
-            <form action="">
-              <div class="login-form"> 
-                <div class="form-group">
-                <label for="email-login">email:</label>
-                <input class="form-input" type="text" id="email-login" />
-              </div>
-              <div class="form-group">
-                <label for="password-login">password:</label>
-                <input class="form-input" type="password" id="password-login" />
-              </div>
-                <div class="form-group">
-                <button class="btn btn-primary" type="submit">login</button>
-                <h4>No account?  </h4>
-                <h4>Click here :<a href="/signup"> Signup</a> </h4>
-              </div>
-            </form>
-        </div>
-      </div>
-    </section>
+    <div class="divide"></div>
     <!--  -->
+    <div class="container-login">
+      <form>
+        <label for="fname">Category name:</label><br />
+        <input type="text" id="Categoryname" name="Categoryname" /><br />
+        <label for="lname">Is the item perisable?</label><br />
+        <input type="checkbox" id="isperishable" name="isperishable" />
+      </form>
+      <button class="button">submit</button>
+    </div>
+    <!--  -->
+    <br /><br /><br />
     <footer>
       <div class="footer">© Feet Go here</div>
     </footer>
-    <!--  -->
   </body>
 </html>

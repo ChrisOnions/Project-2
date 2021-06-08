@@ -3,8 +3,9 @@ const foodItem = require("../models/FoodItem");
 const foodItemData = [
   {
     name: "Full-cream Milk",
-    expiryDate: 17 / 06 / 2021,
+    expiryDate: "2021-06-17", // passed in as ISO-8061
     isFrozen: false,
+    user_id: 2,
     foodCategoryId: 4,
     quantity: 1,
     alreadyPurchased: true,
@@ -12,8 +13,9 @@ const foodItemData = [
   },
   {
     name: "Raw beef steak",
-    expiryDate: 8 / 06 / 2021,
+    expiryDate: "2021-06-08",
     isFrozen: false,
+    user_id: 1,
     foodCategoryId: 1,
     quantity: 2,
     alreadyPurchased: true,
@@ -21,8 +23,9 @@ const foodItemData = [
   },
   {
     name: "Cooked Salmon",
-    expiryDate: 16 / 06 / 2021,
+    expiryDate: "2021-06-16",
     isFrozen: false,
+    user_id: 1,
     foodCategoryId: 2,
     quantity: 3,
     alreadyPurchased: true,
@@ -30,8 +33,9 @@ const foodItemData = [
   },
   {
     name: "Eggs",
-    expiryDate: 13 / 06 / 2021,
+    expiryDate: "2021-06-13", // passed in as ISO-8061
     isFrozen: false,
+    user_id: 2,
     foodCategoryId: 5,
     quantity: 12,
     alreadyPurchased: false,
@@ -39,8 +43,9 @@ const foodItemData = [
   },
   {
     name: "White Bread Loaf",
-    expiryDate: 10 / 06 / 2021,
+    expiryDate: "2021-06-10",
     isFrozen: false,
+    user_id: 1,
     foodCategoryId: 6,
     quantity: 1,
     alreadyPurchased: true,
@@ -49,8 +54,9 @@ const foodItemData = [
   },
   {
     name: "Pepsi cans",
-    expiryDate: 03 / 12 / 2021,
+    expiryDate: "2021-12-03",
     isFrozen: false,
+    user_id: 1,
     foodCategoryId: 8,
     quantity: 24,
     alreadyPurchased: false,
@@ -58,8 +64,9 @@ const foodItemData = [
   },
   {
     name: "Brussel Sprouts",
-    expiryDate: 03 / 08 / 2021,
+    expiryDate: "2021-08-03",
     isFrozen: false,
+    user_id: 1,
     foodCategoryId: 7,
     quantity: 20,
     alreadyPurchased: true,
@@ -67,8 +74,9 @@ const foodItemData = [
   },
   {
     name: "Apples",
-    expiryDate: 7 / 06 / 2021,
+    expiryDate: "2021-06-11",
     isFrozen: false,
+    user_id: 1,
     foodCategoryId: 7,
     quantity: 5,
     alreadyPurchased: false,

@@ -1,30 +1,35 @@
 // import models
 const foodCategory = require("./foodCategory");
-const user = require("./user");
 const foodBank = require("./foodBank");
+const user = require("./user");
 const foodItems = require("./foodItem");
-//users dont relate to anything
 
+// Users can have many food items
 user.hasMany(foodItems, {
-  foreignKey: 'user_id'
-})
+  foreignKey: "user_id",
+});
 
-foodItems.belongsToMany(user, {
-  through: "foodItemsId"
-})
+// Food items belong to one user
+foodItems.belongsTo(user, {
+  foreignKey: "user_id",
+});
 
+// A food category can have many food items
 foodCategory.hasMany(foodItems, {
   foreignKey: "foodCategoryId",
 });
 
+// A food item can belong to one category
 foodItems.belongsTo(foodCategory, {
   foreignKey: "foodCategoryId",
 });
 
+// A foodbank can have many food items
 foodBank.hasMany(foodItems, {
   foreignKey: "foodBankId",
 });
 
+// A food item can belong to one food bank
 foodItems.belongsTo(foodBank, {
   foreignKey: "foodBankId",
 });

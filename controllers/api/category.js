@@ -1,82 +1,82 @@
 const router = require('express').Router();
-const { foodCategory, foodItems } = require('../../models');
+const { foodCategory } = require('../../models');
 
 
 // " C R U D "
 // Create new Category
-
+//http://localhost:3001/api/category/
 router.post('/', async (req, res) => {
+  const { is_perishable, name } = req.body
   try {
-    const newCat = await foodCategory.create(
+    const Category = await foodCategory.create(
       {
-        name: req.body.name,
-        is_perishable: req.body.is_perishable
+        name,
+        is_perishable
       }
-    )
-    res.status(200).json(newCat)
+    ).get({ plain: true });
+    res.json(Category)
   } catch (err) {
     res.status(400).json(err)
   }
-
 })
 
 // Read Category 
 
 router.get('/', async (req, res) => {
   try {
-    const getCat = await foodCategory.findAll()
-    res.status(200).json(getCat)
-    console.log(getCat);
+    const Category = await foodCategory.findAll().get({ plain: true });
+    res.json(Category)
   } catch (err) { res.status(400).json(err) }
 })
 
-// Get Cat by id
+// Get Category by id
+
 router.get('/:id', async (req, res) => {
+  const { id } = req.params
   try {
-    const getCatid = await foodCategory.findByPk(req.params.id
-      // {
-      //   id: {
-      //     include: [{ models: foodItems }]
-      //   }
-      // }
-    )
-    res.status(200).json(getCatid)
+    const Category = await foodCategory.findByPk(id).get({ plain: true });
+    res.json(Category)
   } catch (err) {
     res.status(400).json(err)
   }
 })
 
 // Delete Category
+
 router.delete('/:id', async (req, res) => {
+  const { id } = req.params
   try {
-    const deleteCat = await foodCategory.destroy({
+    const Category = await foodCategory.destroy({
       where: {
-        id: req.params.id
+        id
       }
-    })
-    console.log(req.params.id);
-    if (!deleteCat) {
-      res.status(404).json("Cat Not Found");
+    }).get({ plain: true });
+
+    if (!Category) {
+      res.status(404).json("Category Not Found");
       return;
     }
-    res.status(200).json(deleteCat)
+    res.json(Category)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(400).json(err)
   }
 })
 
 // Update Category
+
 router.put('/:id', async (req, res) => {
+  const { id } = req.params
   try {
-    const updateCat = await foodCategory.update(
+    const Category = await foodCategory.update(
       {
         where: {
-          id: req.params.id,
+          id
         }
       }
-    )
+    ).get({ plain: true });
+    res.status(204).json(Category)
   } catch (err) {
-    res.status(400).json(updateCat)
+    res.status(400).json(err)
   }
 })
 

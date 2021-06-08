@@ -30,7 +30,7 @@ FoodBank.init(
       type: DataTypes.INTEGER,
     },
     donatedDate: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     // donatedByUserId: {
     //   type: DataTypes.INTEGER,

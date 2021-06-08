@@ -6,22 +6,21 @@ const User = require('../../models/user');
 // http://localhost:3001/api/users/
 // Create user 
 router.post('/', async (req, res) => {
+  const { name, email, password } = req.body
   try {
-    const userToDb = await User.create(
+    const user = (await User.create(
       {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-      });
+        name,
+        email,
+        password,
+      })).get({ plain: true });
 
-    if (userToDb) {
+    if (user) {
       req.session.save(() => {
-
-        req.session.user_id = userToDb.id
+        req.session.user_id = user.id
         req.session.logged_in = true;
+        res.status(200).json({ email, name })
       })
-      res.status(200).json(userToDb)
-      res.render('home')
     }
   } catch (err) {
     res.status(400).json(err)
@@ -31,35 +30,36 @@ router.post('/', async (req, res) => {
 //http://localhost:3001/api/users/login
 // Read
 router.post('/login', async (req, res) => {
+  const { email, password } = req.body
   try {
-    const userData = await User.findOne(
+    const user = await User.findOne(
       {
         where: {
-          email: req.body.email,
+          email
         }
-      })
+      }).get({ plain: true });
 
-    if (!userData) {
-      res.status(404).send({ message: "Sorry please sign up" })
+    if (!user) {
+      res.status(401).send({ message: "Incorrect email or password, please try again" })
       return
     }
 
-    const passwordValid = await userData.checkPassword(req.body.password)
+    const validPassword = await user.checkPassword(password)
 
-    if (!passwordValid) {
-      res.status(400).send({ message: 'Incorrect email or password, please try again' })
+    if (!validPassword) {
+      res.status(401).send({ message: 'Incorrect email or password, please try again' })
       return
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = user.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.status(200).json({ email, name: user.name })
 
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 })
 
