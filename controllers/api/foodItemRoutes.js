@@ -4,9 +4,9 @@ const { FoodItem } = require('../../models');
 router.post('/create', async (req, res) => {
   try {
     const { name, expiry_date,quantity,brand, food_category_id, donated, is_frozen,already_purchased} = req.body;
-    const foodData = await FoodItem.findOne({ where: { name: req.body.name } });
+    const foodItem = await FoodItem.findOne({ where: { name: req.body.name } });
 
-    if (!foodData) {
+    if (!foodItem) {
         //create the food 
         const foodItem = await FoodItem.create({
          name,
@@ -34,7 +34,7 @@ router.post('/create', async (req, res) => {
         {
           //gets the food based on ID
           where: {
-            id: foodData.id,
+            id: foodItem.id,
           },
         });
   
