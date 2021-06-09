@@ -274,10 +274,70 @@ button:hover {
 @media only screen and (max-width: 480px) {
 }
 @media only screen and (max-width: 768px) {
+  .table-header {
+    display: none;
+  }
+
+  li {
+    display: block;
+  }
+  .col {
+    flex-basis: 100%;
+  }
+  .col {
+    display: flex;
+    padding: 10px 0;
+  }
+  .col:before {
+    color: #6c7a89;
+    padding-right: 10px;
+    content: attr(data-label);
+    flex-basis: 50%;
+    text-align: right;
+  }
+  .container-dashboard {
+    display: flex;
+    flex-direction: column;
+  }
 }
+
+@media screen and (max-width: 850px) {
+  .table-header,
+  .table-row,
+  .table-header-heading {
+    display: flex;
+    flex-direction: column;
+    line-height: 2em;
+    justify-content: center;
+  }
+  .col {
+    max-width: 100%;
+  }
+  .add-food-item {
+    width: 100%;
+  }
+
+  .add-item-btn-submit {
+    width: 100%;
+  }
+
+  .cancel-item-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 851px) {
+  .add-item-btn-submit {
+    width: 50%;
+  }
+
+  .cancel-item-btn {
+    width: 49%;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
 }
-/* delete this  */
 
 /* CSS FOR DASHBOARD */
 
@@ -341,68 +401,6 @@ button:hover {
 .responsive-table .delete-button {
   text-align: end;
   font-size: 30px;
-}
-@media all and (max-width: 767px) {
-  .table-header {
-    display: none;
-  }
-
-  li {
-    display: block;
-  }
-  .col {
-    flex-basis: 100%;
-  }
-  .col {
-    display: flex;
-    padding: 10px 0;
-  }
-  .col:before {
-    color: #6c7a89;
-    padding-right: 10px;
-    content: attr(data-label);
-    flex-basis: 50%;
-    text-align: right;
-  }
-  .container-dashboard {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  .table-header,
-  .table-row,
-  .table-header-heading {
-    display: flex;
-    flex-direction: column;
-    line-height: 2em;
-    justify-content: center;
-  }
-  .col {
-    max-width: 100%;
-  }
-  .add-food-item {
-    width: 100%;
-  }
-
-  .add-item-btn-submit {
-    width: 100%;
-  }
-
-  .cancel-item-btn {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 851px) {
-  .add-item-btn-submit {
-    width: 50%;
-  }
-
-  .cancel-item-btn {
-    width: 49%;
-  }
 }
 
 /** add food item form - https://codepen.io/ainalem/pen/GRqPwoz **/
