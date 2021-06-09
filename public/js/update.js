@@ -9,6 +9,7 @@ function deleteFoodItem(id) {
       body: JSON.stringify({ id }),
       headers: { "Content-Type": "application/json" },
     }).then((res) => {
+
       if (res.ok) alert("successfully deleted");
       document.location.replace("/dashboard");
     });
@@ -75,37 +76,41 @@ submitBtn.addEventListener("click", (event) => {
   var obj = {};
   var errMsg = "";
   var inputs = document.getElementsByClassName("input");
-  for (var i = 0; i < inputs.length; i++) {
-    var field = inputs[i].id;
-    if (field == "expiryDate") {
-      var date = moment(inputs[i].value);
-      if (date.isValid() && inputs[i].value.length >= 8)
-        obj[field] = inputs[i].value;
-      else errMsg = "Expiry Date is invalid or empty \n";
-    } else {
-      obj[field] = inputs[i].value;
+    for (var i=0; i < inputs.length; i++ ) {
+      var field = inputs[i].id;
+      if(field == "expiryDate"){
+        var date = moment(inputs[i].value);
+        if(date.isValid() && inputs[i].value.length >= 8)
+           obj[field] = inputs[i].value;
+        else 
+          errMsg =  "Expiry Date is invalid or empty \n";
+      } else {
+         obj[field] = inputs[i].value;
+      }
+      if( !inputs[i].value && field != "expiryDate") {
+        errMsg += field + " cannot be empty \n";
+      }
     }
     if (!inputs[i].value && field != "expiryDate") {
       errMsg += field + " cannot be empty \n";
     }
   }
-
-  if (errMsg != "") {
-    alert(errMsg);
-  } else {
+    if(errMsg != ""){
+      alert(errMsg); 
+    } else {
     fetch("/api/food/create", {
-      method: "POST",
-      body: JSON.stringify(obj),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        if (res.ok) return res.json();
+        method: 'POST',
+        body: JSON.stringify(obj),
+        headers: { 'Content-Type': 'application/json' },
+      }).then((res) => {
+          if(res.ok)
+            return res.json();        
+      }).then((data) => {
+          if(data) {
+            alert("Item created successfully");
+            document.location.replace('/dashboard');
+          }
       })
-      .then((data) => {
-        if (data) {
-          alert("Item created successfully");
-          document.location.replace("/dashboard");
-        }
-      });
-  }
+    }
 });
+
