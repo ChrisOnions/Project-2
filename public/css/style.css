@@ -14,6 +14,12 @@
   --Button_dm: rgb(17, 75, 95);
   --Text: black;
   --Text_dm: white;
+  /* Agreed palette */
+  --IndianRed: #e15554;
+  --Xiketic: #1b0f13;
+  --Alabaster: #f1f2ec;
+  --QueenBlue: #466991;
+  --MidnightEagleGreen: #114b5f;
 }
 
 body {
@@ -21,6 +27,22 @@ body {
   background-color: var(--Darkmode);
   background-image: url("/assets/white-abstract-background_23-2148812993.jpg");
   background-size: cover;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+  /* font-size: 18px; */
+  line-height: 1.5;
+}
+
+p {
+  font-family: Arial, sans-serif;
+  /* font-size: 12px; */
+  line-height: 1.5;
 }
 .errStatus {
   height: 100vh;
@@ -34,7 +56,7 @@ body {
 /*Header*/
 .header-container {
   display: flex;
-  background-color: var(--Taskbar);
+  background-color: var(--IndianRed);
   min-height: 60px;
 }
 .button-container {
@@ -72,11 +94,12 @@ ul li {
 }
 /* buttons */
 button {
-  color: #fff;
+  color: var(--Alabaster);
   text-transform: uppercase;
   text-decoration: none;
-  background: var(--Taskbar);
-  padding: 20px;
+  text-align: center;
+  background: var(--QueenBlue);
+  padding: 10px;
   border-radius: 5px;
   display: inline-block;
   border: none;
@@ -89,12 +112,12 @@ img {
   width: auto;
 }
 .divide {
-  border-top: 3px solid #bbb;
+  border-top: 3px solid var(--QueenBlue);
   margin: auto 50px;
 }
 /* Signup */
 .signup {
-  color: rgb(18, 126, 6);
+  color: var(--QueenBlue);
 }
 
 /* Footer */
@@ -102,7 +125,7 @@ img {
   text-align: center;
   padding: 2px;
   font-size: 0.8em;
-  background-color: var(--Taskbar);
+  background-color: var(--Xiketic);
   color: white;
   position: fixed;
   min-width: 100%;
@@ -139,8 +162,8 @@ img {
   height: 100%;
   left: 0;
   top: 0;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--Text);
+  background: var(--Text);
   overflow: auto;
 }
 
@@ -179,41 +202,55 @@ img {
 .user-profile {
   margin: 30px;
 }
+
 /* Home Page */
 .home-page {
   display: flex;
   flex-direction: row;
-  flex-wrap: no-wrap;
+  flex-wrap: wrap;
+  margin: 5% auto;
 }
 
 .article-continer {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   margin-right: 50px;
+  /* justify-content: center;
+  align-content: center; */
+  margin-bottom: 5%;
+}
+
+.article-title,
+.article {
+  text-align: center;
 }
 
 .action-container {
-  flex-grow: 2;
+  display: flex;
+  flex-grow: 1;
 }
 
 .learn-more-button {
-  color: #fff;
+  color: var(--Alabaster);
   text-transform: uppercase;
   text-decoration: none;
-  background: rgb(18, 126, 6);
+  background: var(--QueenBlue);
   padding: 10px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
   margin: 10px;
+  max-width: 35%;
+  text-align: center;
+  align-self: center;
 }
 
 .background-image {
-  background-image: url("/assets/food_waste_heroes.jpg");
-  min-width: 480px;
-  min-height: 400px;
-  max-width: 800px;
-  max-height: 650px;
+  display: flex;
+  background-image: url("/assets/white-bench.png");
+  opacity: 0.9;
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -224,28 +261,25 @@ img {
   padding: 10px 20px 20px;
   border-radius: 5px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  align-content: center;
-  background-color: rgb(235, 226, 226);
-  width: 420px;
-  height: auto;
-}
-.container-exp-food h3 {
-  padding: 2%;
-  display: inline;
+  color: var(--Alabaster);
+  background-color: var(--Xiketic);
 }
 
 /* User Home Page */
 
 .donate-button {
-  color: #fff;
+  color: var(--Alabaster);
   text-transform: uppercase;
   text-decoration: none;
-  background: red;
+  background: var(--IndianRed);
   padding: 10px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
+  margin: 5% auto;
+  text-align: center;
+  /* max-width: 30%; */
 }
 
 .exp-list {
@@ -266,7 +300,7 @@ button:hover {
 
 .signup:hover {
   text-decoration: none;
-  color: rgb(17, 65, 11);
+  color: var(--MidnightEagleGreen);
 }
 /* Media Querys */
 
