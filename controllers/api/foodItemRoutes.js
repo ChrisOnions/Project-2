@@ -3,24 +3,24 @@ const { FoodItem } = require('../../models');
 
 router.post('/create', async (req, res) => {
   try {
-    const { name, expiry_date,quantity,brand, food_category_id, donated, is_frozen,already_purchased} = req.body;
+    const { name, expiry_date, quantity, brand, food_category_id, donated, is_frozen, already_purchased } = req.body;
     const foodItem = await FoodItem.findOne({ where: { name: req.body.name } });
 
     if (!foodItem) {
-        //create the food 
-        const foodItem = await FoodItem.create({
-         name,
-         expiry_date,
-         quantity,
-         brand,
-         food_category_id,
-         donated,
-         is_frozen,
-         already_purchased
-        });
+      //create the food 
+      const foodItem = await FoodItem.create({
+        name,
+        expiry_date,
+        quantity,
+        brand,
+        food_category_id,
+        donated,
+        is_frozen,
+        already_purchased
+      });
     } else {
       //update the food
-     const foodItem =  await FoodItem.update(
+      const foodItem = await FoodItem.update(
         {
           name,
           expiry_date,
@@ -37,7 +37,7 @@ router.post('/create', async (req, res) => {
             id: foodItem.id,
           },
         });
-  
+
     }
     res.status(200).json(foodItem);
 
@@ -47,10 +47,10 @@ router.post('/create', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const { id } =  req.params;
-  const { name, expiry_date,quantity,brand, food_category_id, donated, is_frozen,already_purchased} = req.body;
-  try{
-   const foodItem =  await FoodItem.update(
+  const { id } = req.params;
+  const { name, expiry_date, quantity, brand, food_category_id, donated, is_frozen, already_purchased } = req.body;
+  try {
+    const foodItem = await FoodItem.update(
       {
         name,
         expiry_date,
@@ -67,24 +67,24 @@ router.put('/:id', async (req, res) => {
         },
       });
     res.status(200).json(foodItem);
-  } catch(err) {
+  } catch (err) {
     res.status(500).json(err);
   }
-  
+
 });
 
 // Delete route for a food item with a matching id
 router.delete('/:id', async (req, res) => {
   // Looks for the food item based on id given in the request parameters and deletes the instance from the database
-  const { id } =  req.params;
-  try{
+  const { id } = req.params;
+  try {
     const foodItem = await FoodItem.destroy({
       where: {
         id
       },
     })
     res.json(foodItem)
-  }catch( err){
+  } catch (err) {
     res.status(500).json(err);
   }
 
@@ -92,25 +92,25 @@ router.delete('/:id', async (req, res) => {
 
 
 // GET all items
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
   const foodItems = await FoodItem.findAll().get({ plain: true });
   res.json(foodItems)
 });
 
 // GET a food item
-router.get('/:id', async(req, res) => {
-  const { id } =  req.params;
-  try{
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
     const foodItem = await FoodItem.findOne(
       {
-        where: { 
+        where: {
           id
         },
       }
-    ).get({plain: true})
+    ).get({ plain: true })
     res.json(foodItem)
-  } 
-  catch(err){
+  }
+  catch (err) {
     res.status(500).json(err);
   }
 });

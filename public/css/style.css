@@ -147,8 +147,8 @@ img {
   height: 100%;
   left: 0;
   top: 0;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--Text);
+  background: var(--Text);
   overflow: auto;
 }
 

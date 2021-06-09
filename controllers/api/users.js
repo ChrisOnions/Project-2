@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
       })
     }
   } catch (err) {
-    res.status(400).json(err)
+    res.status(500).json(err)
   }
 })
 
@@ -73,7 +73,7 @@ router.delete('/logout', (req, res) => {
     });
   } else {
 
-    res.status(404).end();
+    res.status(500).end();
   }
 });
 // Update
