@@ -251,6 +251,7 @@ img {
 .exp-list {
   display: list-item;
   padding: 2%;
+  white-space: nowrap;
 }
 
 .exp-ul {

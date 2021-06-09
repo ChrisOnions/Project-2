@@ -17,6 +17,7 @@ const foodItemData = [
     isFrozen: false,
     user_id: 1,
     foodCategoryId: 1,
+    donated: true,
     quantity: 2,
     alreadyPurchased: true,
     brand: "BeastMeats",

@@ -6,20 +6,28 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   try {
-    const foodItemData = await foodItems.findAll({ raw: true });
-    // Add in {user_id: } to show only  items for currently logged in user
-    // console.log(req.session); user_id: session.user_id, //{ where: { donated: false } },
-    res.render("home", {
-      logged_in: req.session.logged_in,
-      foodItems: foodItemData.map((item) => {
-        const expiresIn = daysUntilExpired(item.expiryDate);
+    if (req.session.logged_in) {
+      const foodItemData = await foodItems.findAll({
+        where: { user_id: req.session.user_id, donated: false },
+        raw: true,
+      });
+      res.render("home", {
+        logged_in: req.session.logged_in,
+        foodItems: foodItemData.map((item) => {
+          const expiresIn = daysUntilExpired(item.expiryDate);
 
-        item.expiresIn = expiresIn;
+          item.expiresIn = expiresIn;
 
-        return item;
-      }),
-    });
+          return item;
+        }),
+      });
+    } else {
+      res.render("home", {
+        logged_in: req.session.logged_in,
+      });
+    }
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
