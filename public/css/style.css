@@ -14,12 +14,6 @@
   --Button_dm: rgb(17, 75, 95);
   --Text: black;
   --Text_dm: white;
-  /* Agreed palette */
-  --IndianRed: #e15554;
-  --Xiketic: #1b0f13;
-  --Alabaster: #f1f2ec;
-  --QueenBlue: #466991;
-  --MidnightEagleGreen: #114b5f;
 }
 
 body {
@@ -27,22 +21,6 @@ body {
   background-color: var(--Darkmode);
   background-image: url("/assets/white-abstract-background_23-2148812993.jpg");
   background-size: cover;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Oswald", sans-serif;
-  /* font-size: 18px; */
-  line-height: 1.5;
-}
-
-p {
-  font-family: Arial, sans-serif;
-  /* font-size: 12px; */
-  line-height: 1.5;
 }
 .errStatus {
   height: 100vh;
@@ -56,7 +34,7 @@ p {
 /*Header*/
 .header-container {
   display: flex;
-  background-color: var(--IndianRed);
+  background-color: var(--Taskbar);
   min-height: 60px;
 }
 .button-container {
@@ -94,12 +72,11 @@ ul li {
 }
 /* buttons */
 button {
-  color: var(--Alabaster);
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  text-align: center;
-  background: var(--QueenBlue);
-  padding: 10px;
+  background: var(--Taskbar);
+  padding: 20px;
   border-radius: 5px;
   display: inline-block;
   border: none;
@@ -112,12 +89,12 @@ img {
   width: auto;
 }
 .divide {
-  border-top: 3px solid var(--QueenBlue);
+  border-top: 3px solid #bbb;
   margin: auto 50px;
 }
 /* Signup */
 .signup {
-  color: var(--QueenBlue);
+  color: rgb(18, 126, 6);
 }
 
 /* Footer */
@@ -125,7 +102,7 @@ img {
   text-align: center;
   padding: 2px;
   font-size: 0.8em;
-  background-color: var(--Xiketic);
+  background-color: var(--Taskbar);
   color: white;
   position: fixed;
   min-width: 100%;
@@ -162,8 +139,8 @@ img {
   height: 100%;
   left: 0;
   top: 0;
-  background: var(--Text);
-  background: var(--Text);
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
   overflow: auto;
 }
 
@@ -202,55 +179,41 @@ img {
 .user-profile {
   margin: 30px;
 }
-
 /* Home Page */
 .home-page {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  margin: 5% auto;
+  flex-wrap: no-wrap;
 }
 
 .article-continer {
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
   margin-right: 50px;
-  /* justify-content: center;
-  align-content: center; */
-  margin-bottom: 5%;
-}
-
-.article-title,
-.article {
-  text-align: center;
 }
 
 .action-container {
-  display: flex;
-  flex-grow: 1;
+  flex-grow: 2;
 }
 
 .learn-more-button {
-  color: var(--Alabaster);
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  background: var(--QueenBlue);
+  background: rgb(18, 126, 6);
   padding: 10px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
   margin: 10px;
-  max-width: 35%;
-  text-align: center;
-  align-self: center;
 }
 
 .background-image {
-  display: flex;
-  background-image: url("/assets/white-bench.png");
-  opacity: 0.9;
+  background-image: url("/assets/food_waste_heroes.jpg");
+  min-width: 480px;
+  min-height: 400px;
+  max-width: 800px;
+  max-height: 650px;
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -261,25 +224,28 @@ img {
   padding: 10px 20px 20px;
   border-radius: 5px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  color: var(--Alabaster);
-  background-color: var(--Xiketic);
+  align-content: center;
+  background-color: rgb(235, 226, 226);
+  width: 420px;
+  height: auto;
+}
+.container-exp-food h3 {
+  padding: 2%;
+  display: inline;
 }
 
 /* User Home Page */
 
 .donate-button {
-  color: var(--Alabaster);
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  background: var(--IndianRed);
+  background: red;
   padding: 10px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
-  margin: 5% auto;
-  text-align: center;
-  /* max-width: 30%; */
 }
 
 .exp-list {
@@ -300,7 +266,7 @@ button:hover {
 
 .signup:hover {
   text-decoration: none;
-  color: var(--MidnightEagleGreen);
+  color: rgb(17, 65, 11);
 }
 /* Media Querys */
 
@@ -573,5 +539,3 @@ button:hover {
     background-color: #E15554;
     color:#1c0f13
   }
-
-  
