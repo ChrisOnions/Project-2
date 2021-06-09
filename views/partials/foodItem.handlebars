@@ -1,0 +1,33 @@
+
+  <div class="food-item-list" style="display:block;">
+     <div>
+      <ul class="responsive-table">
+        <li class="table-header-heading">
+          <div class="col col-8">List of items available in the pantry</div>
+          <div class="col col-4"><a class="btn add-item-btn">Add Food Item</a></div>
+        </li>
+         <li class="table-header">
+            <div class="col col-3">Item Name</div>
+            <div class="col col-3">Brand</div>
+            <div class="col col-1">Qty</div>
+            <div class="col col-3">Expiry Date</div>
+            <div class="col col-1">Frozen?</div>
+            <div class="col col-1" style="color: #E15554;">delete</div>
+         </li>
+         {{#each foodItems}}
+            {{#if this.donated}}
+            
+            {{else}}
+                <li class="table-row">
+                    <div class="col col-3" data-label="Item Name">{{this.name}}</div>
+                    <div class="col col-3" data-label="Brand">{{this.brand}}</div>
+                    <div class="col col-1" data-label="Quantity">{{this.quantity}}</div>
+                    <div class="col col-3" data-label="Expiry Date">{{this.expiryDate}}</div>
+                    <div class="col col-1" data-label="Is Frozen?">{{this.isFrozen}}</div>
+                    <div class="col col-1 delete-button" data-label="delete"> <a id="{{this.id}}" class="delete-food-item" onclick="deleteFoodItem({{this.id}})" ><i class="fa fa-trash"></i> </a></div>
+                </li>
+            {{/if}}
+         {{/each}}
+      </ul>
+      </div>
+   </div>

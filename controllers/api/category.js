@@ -24,9 +24,12 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const Category = await foodCategory.findAll().get({ plain: true });
-    res.json(Category)
-  } catch (err) { res.status(400).json(err) }
+    const Category = await foodCategory.findAll({ raw: true,
+    });
+   res.json(Category)
+  } catch (err) { 
+    console.log(err)
+    res.status(400).json(err) }
 })
 
 // Get Category by id

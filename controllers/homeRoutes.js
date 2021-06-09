@@ -115,14 +115,7 @@ router.get('/Donate', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 })
-// Last route
-router.get('*', async (req, res) => {
-  try {
-    res.render('404')
-  } catch (err) {
-    res.status(400).json(err);
-  }
-})
+
 
 
 module.exports = router;
