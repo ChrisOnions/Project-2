@@ -1,44 +1,46 @@
 const router = require("express").Router();
-const { FoodItem } = require("../../models");
+const FoodItem = require("../../models/foodItem");
 
 router.post("/create", async (req, res) => {
   try {
     const {
       name,
-      expiry_date,
+      expiryDate,
       quantity,
       brand,
-      food_category_id,
+      foodCategoryId,
       donated,
-      is_frozen,
+      isFrozen,
       already_purchased,
     } = req.body;
-    const foodItem = await FoodItem.findOne({ where: { name: req.body.name } });
+    var foodItem = await FoodItem.findOne({ where: { name } });
 
     if (!foodItem) {
       //create the food
-      const foodItem = await FoodItem.create({
+      foodItem = await FoodItem.create({
         name,
-        expiry_date,
+        expiryDate,
         quantity,
         brand,
-        food_category_id,
+        foodCategoryId,
         donated,
-        is_frozen,
+        isFrozen,
         already_purchased,
+        user_id: req.session.user_id,
       });
     } else {
       //update the food
-      const foodItem = await FoodItem.update(
+      foodItem = await FoodItem.update(
         {
           name,
-          expiry_date,
+          expiryDate,
           quantity,
           brand,
-          food_category_id,
+          foodCategoryId,
           donated,
-          is_frozen,
+          isFrozen,
           already_purchased,
+          user_id: req.session.user_id,
         },
         {
           //gets the food based on ID
@@ -58,25 +60,26 @@ router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const {
     name,
-    expiry_date,
+    expiryDate,
     quantity,
     brand,
-    food_category_id,
+    foodCategoryId,
     donated,
-    is_frozen,
+    isFrozen,
     already_purchased,
   } = req.body;
   try {
     const foodItem = await FoodItem.update(
       {
         name,
-        expiry_date,
+        expiryDate,
         quantity,
         brand,
-        food_category_id,
+        foodCategoryId,
         donated,
-        is_frozen,
+        isFrozen,
         already_purchased,
+        user_id: req.session.user_id,
       },
       {
         where: {
@@ -121,7 +124,7 @@ router.get("/:id", async (req, res) => {
         id,
       },
     }).get({ plain: true });
-    res.json(foodItem);
+    res.status(200).json(foodItem);
   } catch (err) {
     res.status(500).json(err);
   }
