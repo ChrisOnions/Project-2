@@ -108,7 +108,7 @@ router.delete("/:id", async (req, res) => {
 
 // GET all items
 router.get("/", async (req, res) => {
-  const foodItems = await FoodItem.findAll({ raw: true });
+  const foodItems = await FoodItem.findAll();
   res.json(foodItems);
 });
 
