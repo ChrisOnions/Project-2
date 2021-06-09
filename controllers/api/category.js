@@ -1,85 +1,87 @@
-const router = require('express').Router();
-const { foodCategory } = require('../../models');
+const router = require("express").Router();
+const { foodCategory } = require("../../models");
 
-
-//  C R U D 
+//  C R U D
 //http://localhost:3001/api/category/
 // Create new Category
 
-router.post('/', async (req, res) => {
-  const { is_perishable, name } = req.body
+router.post("/", async (req, res) => {
+  const { is_perishable, name } = req.body;
   try {
-    const Category = await foodCategory.create(
-      {
+    const Category = await foodCategory
+      .create({
         name,
-        is_perishable
-      }
-    ).get({ plain: true });
-    res.json(Category)
+        is_perishable,
+      })
+      .get({ plain: true });
+    res.json(Category);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
-})
+});
 
-// Read Category 
+// Read Category
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const Category = await foodCategory.findAll().get({ plain: true });
-    res.json(Category)
-  } catch (err) { res.status(500).json(err) }
-})
+    const Category = await foodCategory.findAll({ raw: true });
+    res.json(Category);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Get Category by id
 
-router.get('/:id', async (req, res) => {
-  const { id } = req.params
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
   try {
     const Category = await foodCategory.findByPk(id).get({ plain: true });
-    res.json(Category)
+    res.json(Category);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
-})
+});
 
 // Delete Category
 
-router.delete('/:id', async (req, res) => {
-  const { id } = req.params
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
   try {
-    const Category = await foodCategory.destroy({
-      where: {
-        id
-      }
-    }).get({ plain: true });
+    const Category = await foodCategory
+      .destroy({
+        where: {
+          id,
+        },
+      })
+      .get({ plain: true });
 
     if (!Category) {
       res.status(404).json("Category Not Found");
       return;
     }
-    res.json(Category)
+    res.json(Category);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
-})
+});
 
 // Update Category
 
-router.put('/:id', async (req, res) => {
-  const { id } = req.params
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
   try {
-    const Category = await foodCategory.update(
-      {
+    const Category = await foodCategory
+      .update({
         where: {
-          id
-        }
-      }
-    ).get({ plain: true });
-    res.status(204).json(Category)
+          id,
+        },
+      })
+      .get({ plain: true });
+    res.status(204).json(Category);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
-})
-
+});
 
 module.exports = router;
