@@ -14,12 +14,6 @@
   --Button_dm: rgb(17, 75, 95);
   --Text: black;
   --Text_dm: white;
-  /* Agreed palette */
-  --IndianRed: #e15554;
-  --Xiketic: #1b0f13;
-  --Alabaster: #f1f2ec;
-  --QueenBlue: #466991;
-  --MidnightEagleGreen: #114b5f;
 }
 
 body {
@@ -27,22 +21,6 @@ body {
   background-color: var(--Darkmode);
   background-image: url("/assets/white-abstract-background_23-2148812993.jpg");
   background-size: cover;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Oswald", sans-serif;
-  /* font-size: 18px; */
-  line-height: 1.5;
-}
-
-p {
-  font-family: Arial, sans-serif;
-  /* font-size: 12px; */
-  line-height: 1.5;
 }
 .errStatus {
   height: 100vh;
@@ -56,7 +34,7 @@ p {
 /*Header*/
 .header-container {
   display: flex;
-  background-color: var(--IndianRed);
+  background-color: var(--Taskbar);
   min-height: 60px;
 }
 .button-container {
@@ -94,12 +72,11 @@ ul li {
 }
 /* buttons */
 button {
-  color: var(--Alabaster);
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  text-align: center;
-  background: var(--QueenBlue);
-  padding: 10px;
+  background: var(--Taskbar);
+  padding: 20px;
   border-radius: 5px;
   display: inline-block;
   border: none;
@@ -107,25 +84,17 @@ button {
 }
 
 /* Login */
-
-.container-login {
-  border: 1px black solid;
-  margin: 50px 50px;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
 img {
   height: 100vh;
   width: auto;
 }
 .divide {
-  border-top: 3px solid var(--QueenBlue);
+  border-top: 3px solid #bbb;
   margin: auto 50px;
 }
 /* Signup */
 .signup {
-  color: var(--QueenBlue);
+  color: rgb(18, 126, 6);
 }
 
 /* Footer */
@@ -133,7 +102,7 @@ img {
   text-align: center;
   padding: 2px;
   font-size: 0.8em;
-  background-color: var(--Xiketic);
+  background-color: var(--Taskbar);
   color: white;
   position: fixed;
   min-width: 100%;
@@ -170,8 +139,8 @@ img {
   height: 100%;
   left: 0;
   top: 0;
-  background: var(--Text);
-  background: var(--Text);
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
   overflow: auto;
 }
 
@@ -210,55 +179,41 @@ img {
 .user-profile {
   margin: 30px;
 }
-
 /* Home Page */
 .home-page {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  margin: 5% auto;
+  flex-wrap: no-wrap;
 }
 
 .article-continer {
-  display: flex;
-  flex-direction: column;
   flex-grow: 1;
   margin-right: 50px;
-  /* justify-content: center;
-  align-content: center; */
-  margin-bottom: 5%;
-}
-
-.article-title,
-.article {
-  text-align: center;
 }
 
 .action-container {
-  display: flex;
-  flex-grow: 1;
+  flex-grow: 2;
 }
 
 .learn-more-button {
-  color: var(--Alabaster);
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  background: var(--QueenBlue);
+  background: rgb(18, 126, 6);
   padding: 10px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
   margin: 10px;
-  max-width: 35%;
-  text-align: center;
-  align-self: center;
 }
 
 .background-image {
-  display: flex;
-  background-image: url("/assets/white-bench.png");
-  opacity: 0.9;
+  background-image: url("/assets/food_waste_heroes.jpg");
+  min-width: 480px;
+  min-height: 400px;
+  max-width: 800px;
+  max-height: 650px;
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -269,25 +224,28 @@ img {
   padding: 10px 20px 20px;
   border-radius: 5px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  color: var(--Alabaster);
-  background-color: var(--Xiketic);
+  align-content: center;
+  background-color: rgb(235, 226, 226);
+  width: 420px;
+  height: auto;
+}
+.container-exp-food h3 {
+  padding: 2%;
+  display: inline;
 }
 
 /* User Home Page */
 
 .donate-button {
-  color: var(--Alabaster);
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  background: var(--IndianRed);
+  background: red;
   padding: 10px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
-  margin: 5% auto;
-  text-align: center;
-  /* max-width: 30%; */
 }
 
 .exp-list {
@@ -309,7 +267,7 @@ button:hover {
 
 .signup:hover {
   text-decoration: none;
-  color: var(--MidnightEagleGreen);
+  color: rgb(17, 65, 11);
 }
 /* Media Querys */
 
@@ -320,3 +278,265 @@ button:hover {
 @media only screen and (max-width: 1024px) {
 }
 /* delete this  */
+
+
+/* CSS FOR DASHBOARD */
+
+.container-dashboard{
+  border: 1px black solid;
+  margin: 50px 50px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  display:flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.add-item-btn{
+  background-color: #1c0f13;
+  color:#F1F2Eb;
+
+}
+  .responsive-table li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  .responsive-table .table-header {
+    background-color: #E15554;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #1c0f13;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+  .responsive-table .table-header-heading {
+    background-color: none;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    color: #1c0f13;
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+  .responsive-table .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+  .responsive-table .col-1 {
+    flex-basis: 10%;
+  }
+  .responsive-table .col-2 {
+    flex-basis: 40%;
+  }
+  .responsive-table .col-3 {
+    flex-basis: 25%;
+  }
+  .responsive-table .col-4 {
+    flex-basis: 25%;
+  }
+  
+  .responsive-table .delete-button{
+    text-align: end;
+    font-size: 30px;
+  }
+  @media all and (max-width: 767px) {
+    .table-header {
+      display: none;
+    }
+
+    li {
+      display: block;
+    }
+    .col {
+      
+      flex-basis: 100%;
+      
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      
+    }
+    .col:before {
+      color: #6C7A89;
+      padding-right: 10px;
+      content: attr(data-label);
+      flex-basis: 50%;
+      text-align: right;
+    }
+    .container-dashboard{
+      display:flex;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width:850px) {
+    .table-header, .table-row, .table-header-heading {
+        display: flex;
+        flex-direction: column;
+        line-height: 2em;
+        justify-content: center;
+    }
+    .col {
+      
+      max-width:100%;
+    }
+    .add-food-item{
+      width: 100%;
+    }
+
+    .add-item-btn-submit{
+      width:100%;
+    }
+
+    .cancel-item-btn{
+      width: 100%;
+    }
+  }
+
+  @media screen  and (min-width:851px){
+    .add-item-btn-submit{
+      width:50%;
+    }
+
+    .cancel-item-btn{
+      width: 49%;
+    }
+  }
+
+  /** add food item form - https://codepen.io/ainalem/pen/GRqPwoz **/
+
+  .add-food-item{
+    width:50%;
+  }
+  .add-food-item-form {
+    background-color: #1c0f13;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 700px;
+    padding: 20px;
+    min-width: 320px;
+  }
+  
+  .add-food-item-title {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+  
+  .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .ic1 {
+    margin-top: 40px;
+  }
+  
+  .ic2 {
+    margin-top: 30px;
+  }
+  
+  .input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+  }
+  
+  
+  .cut {
+    background-color: #15172b;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+  }
+  
+  .cut-short {
+    width: 50px;
+  }
+  
+  .input:focus ~ .cut,
+  .input:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px);
+  }
+  
+  .placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+  
+  .input:focus ~ .placeholder,
+  .input:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+  }
+  
+  .input:not(:placeholder-shown) ~ .placeholder {
+    color: #808097;
+  }
+  
+  .input:focus ~ .placeholder {
+    color: #dc2f55;
+  }
+  
+  .add-item-btn-submit{
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    text-align: center;
+    background-color: #E15554;
+    color:#f1f2ec
+  }
+  
+  .add-item-btn-submit:active {
+    background-color: #E15554;
+    color:#1c0f13
+  }
+
+  .cancel-item-btn{
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    text-align: center;
+    background-color: #f1f2ec ;
+    color:#1c0f13;
+    margin-bottom: 20px;
+  }
+  .cancel-item-btn:active {
+    background-color: #E15554;
+    color:#1c0f13
+  }
