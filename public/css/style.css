@@ -14,6 +14,12 @@
   --Button_dm: rgb(17, 75, 95);
   --Text: black;
   --Text_dm: white;
+  /* Agreed palette */
+  --IndianRed: #e15554;
+  --Xiketic: #1b0f13;
+  --Alabaster: #f1f2ec;
+  --QueenBlue: #466991;
+  --MidnightEagleGreen: #114b5f;
 }
 
 body {
