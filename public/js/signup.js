@@ -1,4 +1,5 @@
-
+const show = document.getElementById('modal-name');
+const errorText = document.getElementById('err-text')
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -16,7 +17,9 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/');
     } else {
-      alert(response.statusText, "Invalid");
+      errorText.innerHTML = `${response.status} ${response.statusText}, `
+      console.log(response);
+      show.style.display = "block"
     }
   }
 };

@@ -1,3 +1,6 @@
+const show = document.getElementById('modal-name');
+const errorText = document.getElementById('err-text')
+console.log(show);
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -8,7 +11,6 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // Send a POST request to the API endpoint.
-    console.log(email, password);
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -18,10 +20,14 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the profile page
       document.location.replace('/');
-      console.log(response.status);
     } else {
-      alert('Incorrect email or password, please try again');
-      console.log(response.status);
+      const output = await response.json()
+      errorText.innerHTML = ` ${output.message} <br> ${response.status} `
+      console.log(response.statusText);
+
+      console.log();
+
+      show.style.display = "block"
     }
   }
 };
