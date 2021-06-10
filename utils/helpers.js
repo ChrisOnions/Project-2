@@ -5,9 +5,9 @@ module.exports = {
     return date.toLocaleTimeString();
   },
   format_date: (date) => {
-    return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
-      new Date(date).getFullYear() + 5
-    }`;
+    return `${new Date(date).getMonth()}/${new Date(date).getDate()}/${new Date(
+      date
+    ).getFullYear()}`;
   },
   expired: (expiryDate) => {
     const currentDate = moment().format("YYYY-MM-DD");
