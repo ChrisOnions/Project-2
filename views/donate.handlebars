@@ -1,12 +1,21 @@
-<section>
-  <div>
-    <p>What would you like to Donate to?</p>
-  </div>
-</section>
-<section>
-  <div>
-    {{#each locations as |location|}}
-      <p>{{location.name}}: {{location.address}}</p>
-    {{/each}}
-  </div>
-</section>
+<div class="container-login">
+
+  <section>
+    <div>
+      <p class="donate-title">Who would you like to Donate to?</p>
+    </div>
+  </section>
+  <div class="divide"></div>
+  <br />
+  <section>
+    <div>
+      {{#each locations as |location|}}
+        <a
+          class="foodBankText"
+          href="{{location.webaddress}}"
+        >{{location.name}}: {{location.address}}</a>
+        <br />
+      {{/each}}
+    </div>
+  </section>
+</div>

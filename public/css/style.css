@@ -29,7 +29,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
   font-family: "Oswald", sans-serif;
   /* font-size: 18px; */
   line-height: 1.5;
@@ -101,9 +102,48 @@ button {
   border: none;
   transition: all 0.4s ease 0s;
 }
+.foodBankText {
+  display: block;
+  color: black;
+}
+.foodBankText:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.donate-title {
+  font-size: xx-large;
+  font-weight: 700;
+}
 
+.container-half {
+  max-width: 39%;
+  border: 1px black solid;
+  margin: 50px 50px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+.flex {
+  display: flex;
+}
+.flex-grow {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.flex-row {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.check-mark {
+  justify-content: space-between;
+}
 /* Login */
-
+.divide-check {
+  border-top: 0.1px solid var(--QueenBlue);
+}
 .container-login {
   border: 1px black solid;
   margin: 50px 50px;
@@ -123,7 +163,8 @@ img {
 .signup {
   color: var(--QueenBlue);
 }
-
+center {
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -309,33 +350,45 @@ button:hover {
 }
 /* Media Querys */
 
-@media only screen and (max-width: 480px) {
-}
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .table-header {
     display: none;
+    flex-direction: column;
   }
 
   li {
     display: block;
   }
-  .col {
-    flex-basis: 100%;
-  }
+
   .col {
     display: flex;
-    padding: 10px 0;
-  }
-  .col:before {
     color: #6c7a89;
-    padding-right: 10px;
     content: attr(data-label);
     flex-basis: 50%;
-    text-align: right;
+    text-align: left;
+    color: var(--Xiketic);
+    padding: 0;
+    font-size: 80%;
   }
+  .responsive-table{
+    padding: 0;
+    margin: 0;
+  }
+  .table-header{
+    flex-direction: row;
+  }
+
   .container-dashboard {
     display: flex;
     flex-direction: column;
+  }
+  .responsive-table li {
+    border-radius: 3px;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    text-align: left;
   }
 }
 
@@ -344,11 +397,13 @@ button:hover {
   .table-row,
   .table-header-heading {
     display: flex;
-    flex-direction: column;
+    
+    flex
     line-height: 2em;
     justify-content: center;
   }
   .col {
+    padding: 0;
     max-width: 100%;
   }
   .add-food-item {
@@ -362,9 +417,6 @@ button:hover {
   .cancel-item-btn {
     width: 100%;
   }
-}
-
-@media screen and (min-width: 851px) {
   .add-item-btn-submit {
     width: 50%;
   }
@@ -374,8 +426,23 @@ button:hover {
   }
 }
 
-@media only screen and (max-width: 1024px) {
+
+@media screen and (max-width: 1024px) {
+  
+  .check-mark {
+    flex-direction: column;
+  }
+  .container-half {
+    max-width: 100%;
+    border: 1px black solid;
+    margin: 50px 50px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    flex-wrap: wrap;
+  }
 }
+/* CSS FOR CART */
 
 /* CSS FOR DASHBOARD */
 
