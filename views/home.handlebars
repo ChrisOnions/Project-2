@@ -14,8 +14,8 @@
         <div class="container-exp-food">
             <h3>Food Expiring Soon</h3>
             <ul class="exp-ul">
-                {{#each foodItems as |item|}}
-                <li class="exp-list">{{item.name}} expires {{item.expiresIn}}</li>
+                {{#each foodItems}}
+                <li class="exp-list">{{name}} {{expired}} {{expiresIn}}</li>
                 
                 {{/each}}
             <a class="donate-button" href="/Donate">Donate</a>
