@@ -197,7 +197,8 @@ center {
   height: 100%;
   top: 0;
   left: 0;
-  background: transparent;
+  background: var(--Dark_mode);
+  opacity:0.6;
 }
 
 .modal {
@@ -207,8 +208,7 @@ center {
   height: 100%;
   left: 0;
   top: 0;
-  background: var(--Text);
-  background: var(--Text);
+
   overflow: auto;
 }
 

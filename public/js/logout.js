@@ -1,3 +1,5 @@
+const show = document.getElementById('modal-name');
+
 const logoutButton = async (event) => {
   event.preventDefault();
   const response = await fetch('/api/users/logout', {
@@ -9,6 +11,7 @@ const logoutButton = async (event) => {
     document.location.replace('/')
   } else {
     console.log(response.text);
+    show.style.display = "block"
   }
 }
 document.querySelector('.submit').addEventListener('click', logoutButton)
