@@ -8,13 +8,13 @@ const { foodCategory } = require("../../models");
 router.post("/", async (req, res) => {
   const { is_perishable, name } = req.body;
   try {
-    const Category = await foodCategory
+    const category = await foodCategory
       .create({
         name,
         is_perishable,
       })
       .get({ plain: true });
-    res.json(Category);
+    res.json(category);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -24,8 +24,8 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const Category = await foodCategory.findAll({ raw: true });
-    res.json(Category);
+    const category = await foodCategory.findAll({ raw: true });
+    res.json(category);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -36,8 +36,8 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const Category = await foodCategory.findByPk(id).get({ plain: true });
-    res.json(Category);
+    const category = await foodCategory.findByPk(id).get({ plain: true });
+    res.json(category);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,7 +60,7 @@ router.delete("/:id", async (req, res) => {
       res.status(404).json("Category Not Found");
       return;
     }
-    res.json(Category);
+    res.json(category);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -71,14 +71,14 @@ router.delete("/:id", async (req, res) => {
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const Category = await foodCategory
+    const category = await foodCategory
       .update({
         where: {
           id,
         },
       })
       .get({ plain: true });
-    res.status(204).json(Category);
+    res.status(204).json(category);
   } catch (err) {
     res.status(500).json(err);
   }
