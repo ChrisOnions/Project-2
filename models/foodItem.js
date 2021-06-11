@@ -22,14 +22,14 @@ FoodItem.init(
     isFrozen: {
       type: DataTypes.BOOLEAN,
     },
-    user_id: { //used
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
       }
     },
-    foodCategoryId: { //used
+    foodCategoryId: {
       type: DataTypes.INTEGER,
       references: {
         model: "foodCategory",
@@ -40,7 +40,7 @@ FoodItem.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    foodBankId: { //used
+    foodBankId: {
       type: DataTypes.INTEGER,
       references: {
         model: "foodBank",

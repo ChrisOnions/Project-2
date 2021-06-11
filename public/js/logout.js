@@ -1,5 +1,5 @@
 const show = document.getElementById('modal-name');
-
+// Request to delete the logged in session
 const logoutButton = async (event) => {
   event.preventDefault();
   const response = await fetch('/api/users/logout', {

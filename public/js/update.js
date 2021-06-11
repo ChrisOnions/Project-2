@@ -3,7 +3,6 @@ const errorText = document.getElementById('err-text')
 /** function to delete food item  */
 function deleteFoodItem(id) {
   //calling the delete api
-
   var res = confirm("Are you sure you want to remove this item?")
   if (res) {
     fetch("/api/food/" + id, {
@@ -96,7 +95,7 @@ submitBtn.addEventListener('click', (event) => {
       errMsg += field + " cannot be empty \n";
     }
   }
-
+  // Post Request to create food item
   if (errMsg != "") {
     show.style.display = "block"
     errorText.innerHTML = errMsg;

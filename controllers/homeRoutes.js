@@ -4,6 +4,7 @@ const withAuth = require("../utils/auth");
 const daysUntilExpired = require("../utils/daysUntilExpired");
 const router = require("express").Router();
 
+// Home route
 router.get("/", async (req, res) => {
   try {
     if (req.session.logged_in) {
@@ -15,9 +16,7 @@ router.get("/", async (req, res) => {
         logged_in: req.session.logged_in,
         foodItems: foodItemData.map((item) => {
           const expiresIn = daysUntilExpired(item.expiryDate);
-
           item.expiresIn = expiresIn;
-
           return item;
         }),
       });
@@ -32,19 +31,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Login route
 router.get("/login", (req, res) => {
   try {
     if (req.session.logged_in) {
       res.redirect("/");
       return;
     }
-
     res.render("login");
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+// Signup route
 router.get("/signup", async (req, res) => {
   try {
     res.render("signup", {
@@ -55,6 +55,7 @@ router.get("/signup", async (req, res) => {
   }
 });
 
+// Logout route
 router.get("/logout", withAuth, async (req, res) => {
   try {
     res.render("logout");
@@ -63,6 +64,7 @@ router.get("/logout", withAuth, async (req, res) => {
   }
 });
 
+// Dashboard route
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     dashData = await user.findByPk(req.session.user_id, {
@@ -70,8 +72,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
       include: [{ model: foodItems }],
     });
     const dashDataPlain = dashData.get({ plain: true });
-
-    console.log(dashDataPlain);
     res.render("dashboard", {
       dashDataPlain,
       logged_in: req.session.logged_in,
@@ -83,13 +83,13 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// Cart route
 router.get("/cart", withAuth, async (req, res) => {
   try {
     const cartData = await foodItems.findAll({
       order: [["name", "ASC"]],
     });
     const cart = cartData.map((data) => data.get({ plain: true }));
-    //cart
     const catData = await foodCategory.findAll({
       order: [["name", "ASC"]],
     });
@@ -103,7 +103,7 @@ router.get("/cart", withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+// Donate route
 router.get("/Donate", withAuth, async (req, res) => {
   try {
     const foodbank = await foodBank.findAll({
@@ -119,7 +119,9 @@ router.get("/Donate", withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-// Last route
+
+// Catch all 
+
 router.get("*", async (req, res) => {
   try {
     res.render("404");

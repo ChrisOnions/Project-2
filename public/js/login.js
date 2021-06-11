@@ -23,10 +23,6 @@ const loginFormHandler = async (event) => {
     } else {
       const output = await response.json()
       errorText.innerHTML = ` ${output.message} <br> ${response.status} `
-      console.log(response.statusText);
-
-      console.log();
-
       show.style.display = "block"
     }
   }

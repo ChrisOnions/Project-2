@@ -1,10 +1,12 @@
 const show = document.getElementById('modal-name');
 const errorText = document.getElementById('err-text')
+const name = document.querySelector('#name-signup').value.trim();
+const email = document.querySelector('#email-signup').value.trim();
+
+// Signup request 
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#name-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
   if (name && email && password) {
@@ -18,7 +20,6 @@ const signupFormHandler = async (event) => {
       document.location.replace('/');
     } else {
       errorText.innerHTML = `${response.status} ${response.statusText}, `
-      console.log(response);
       show.style.display = "block"
     }
   }
