@@ -1,30 +1,46 @@
 <div class="flex check-mark">
+  <button id="reAddItem" class="btn cart-button add-item-btn flex-row">Re-add
+    items
+  </button>
+  <button id="addCategory" class="btn cart-button add-item-btn flex-row">Add
+    Category</button>
+</div>
+<div class="flex check-mark">
   <div class="container-half">
+    <div class="flex-row table-header">
+      <p class="table-header-text">Name</p>
+      <div class="flex-grow"></div>
+      <p class="table-header-text">Brand</p>
+    </div>
+    <div class="divide-check-thick"></div>
     {{#each cart as |carts|}}
       <div class="flex-row">
-        <p>Name:
+        <p>
           {{carts.name}}</p>
         <div class="flex-grow"></div>
-        <p class="center"> Brand: {{carts.brand}} </p>
+        <p class="center"> {{carts.brand}} </p>
         <label class="align check-mark">
-          <input type="checkbox" class="check-mark" />
-          <span></span>
         </label>
+
       </div>
       <div class="divide-check"></div>
       <br />
-
     {{/each}}
   </div>
+
   <div class="container-half">
+    <div>
+      <p class="table-header-text">Category:</p>
+      <div class="divide-check-thick"></div>
+    </div>
     {{#each category as |categorys|}}
       <div>
-        <p>Category: {{categorys.name}}</p>
+        <p> {{categorys.name}}</p>
 
       </div>
       <div class="divide-check"></div>
       <br />
     {{/each}}
-
   </div>
+  <script src="/js/cart.js"></script>
 </div>
