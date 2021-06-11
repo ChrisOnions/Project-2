@@ -1,5 +1,3 @@
-const e = require("express")
-
 const reAddItem_btn = document.getElementById('reAddItem')
 const addCategory_btn = document.getElementById('addCategory')
 
@@ -7,6 +5,7 @@ const addCategory_btn = document.getElementById('addCategory')
 // Add Fooditem from existing 
 const addItem_func = async (event) => {
   event.preventDefault();
+  console.log("clicked");
   // popup modal for items
   // existing items
   // display existing items
@@ -22,6 +21,7 @@ const addItem_func = async (event) => {
 // Add Category
 const addCategory_func = async (event) => {
   event.preventDefault();
+  console.log("clicked");
   // Create modal for item to add
   // 'name'
   // 'is_perishable' checkbox
