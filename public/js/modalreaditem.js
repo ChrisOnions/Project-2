@@ -7,17 +7,28 @@ console.log(reAddItem_btn);
 // const add_items = document.getElementById('Add-items');
 // console.log(add_items);
 
-const prev_purchased_items = fetch('/api/food/', {
-  method: 'GET',
-  headers: { 'Content-Type': 'application/json' },
-})
-console.log(prev_purchased_items);
-
 const addItem_func = async (event) => {
   event.preventDefault();
   console.log("clicked");
+  const name = document.getElementById("item").value;
+  const expiryDate = document.getElementById("expdate").value.trim();
 
-
+  const prev_purchased_items = await fetch('/api/food/create', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(
+      {
+        name,
+        expiryDate,
+      }
+    )
+  })
+  if (prev_purchased_items) {
+    console.log("sucess");
+    // document.location.replace('/cart')
+  } else {
+    alert(createCat.statusText, "Invalid");
+  }
   // existing items
   // display existing items
   // get item details

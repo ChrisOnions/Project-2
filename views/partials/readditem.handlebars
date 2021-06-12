@@ -7,17 +7,19 @@
     <div class="modal-body">
       <div>
         <form class="" action="submit">
-          {{#each prev_purchased_items}}
           <Label>Select item : </Label>
-                    <p>{{name}}</p>
-          {{/each}}
-        
-          <input id="" type="fieldset" />
+          <select name="item" id="item">
+          {{#each cart as |cart|}}
 
+          <option value="{{this.name}}">{{this.name}}</option>
+
+          {{/each}}
+        </select>
+        </form>
           <br>
       <label for="expiryDate" >Expiry Date(YYYY-MM-DD)</label>
       <br>
-      <input type="text">
+      <input id="expdate" type="text">
       </form>
 
       <button id="Add-items">Add Item</button>
