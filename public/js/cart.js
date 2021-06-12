@@ -5,13 +5,10 @@ const addCategory_modal_btn = document.getElementById("Add-item")
 const show = document.getElementById('modal-name');
 const errorText = document.getElementById('err-text');
 console.log(category_modal);
-// Add Fooditem from existing 
-// Add Category
+
 const addCategory_func = (event) => {
   event.preventDefault();
-  console.log("clicked");
   category_modal.style.display = 'block'
-  console.log("block");
 }
 const fetchcategory = async (name) => {
 
@@ -20,9 +17,8 @@ const fetchcategory = async (name) => {
       method: 'POST',
       body: JSON.stringify({ name }),
       headers: { 'Content-Type': 'application/json' },
-    })
+    });
     if (response.ok) {
-      // If successful, redirect the browser to the cart page
       document.location.replace('/cart');
     } else {
       const output = await response.json()
@@ -34,7 +30,7 @@ const fetchcategory = async (name) => {
 
 addCategory_modal_btn.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log("category btn clicked");
+
   const name = document.querySelector('#newCategory').value.trim()
   fetchcategory(name)
   category_modal.style.display = 'none'
