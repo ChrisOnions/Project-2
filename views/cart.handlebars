@@ -1,5 +1,6 @@
 <div class="flex check-mark">
-  <button id="reAddItem" class="btn cart-button add-item-btn flex-row">Re-add
+
+  <button id="reAddItem_btn" class="btn cart-button add-item-btn flex-row">Re-add
     items
   </button>
   <button id="addCategory" class="btn cart-button add-item-btn flex-row">Add
@@ -42,5 +43,10 @@
       <br />
     {{/each}}
   </div>
-  <script src="/js/cart.js"></script>
 </div>
+  {{> readditem}}
+  {{> addfoodcategory}}
+
+  <script src="/js/cart.js"></script>
+  <script src="/js/modalcategory.js"></script>
+  <script src="/js/modalreaditem.js"></script>

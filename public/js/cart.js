@@ -1,33 +1,42 @@
-const reAddItem_btn = document.getElementById('reAddItem')
-const addCategory_btn = document.getElementById('addCategory')
 
+const addCategory_btn = document.getElementById('addCategory')
+const category_modal = document.getElementById('categoryAdd')
+const addCategory_modal_btn = document.getElementById("Add-item")
+const show = document.getElementById('modal-name');
+const errorText = document.getElementById('err-text');
 
 // Add Fooditem from existing 
-const addItem_func = async (event) => {
-  event.preventDefault();
-  console.log("clicked");
-  // popup modal for items
-  // existing items
-  // display existing items
-  // get item details
-  // update item details
-  // expiryDate
-  // isFrozen
-  // session.user_id
-  // quantity
-  // brand
-  // Post request to server
-}
 // Add Category
-const addCategory_func = async (event) => {
+const addCategory_func = (event) => {
   event.preventDefault();
   console.log("clicked");
-  // Create modal for item to add
-  // 'name'
-  // 'is_perishable' checkbox
-  // if (name && bool)
-  // Fetch Post request to server
-
+  category_modal.style.display = 'block'
 }
-reAddItem_btn.addEventListener('click', addItem_func)
-addCategory_btn.addEventListener('click', addCategory_func)
+const fetchcategory = async (name) => {
+
+  if (name) {
+    const response = await fetch('/api/category/', {
+      method: 'POST',
+      body: JSON.stringify({ name }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+    if (response.ok) {
+      // If successful, redirect the browser to the cart page
+      document.location.replace('/cart');
+    } else {
+      const output = await response.json()
+      errorText.innerHTML = ` ${output.message} <br> ${response.status} `
+      show.style.display = "block"
+    }
+  }
+};
+
+addCategory_modal_btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log("category btn clicked");
+  const name = document.querySelector('#newCategory').value.trim()
+  fetchcategory(name)
+  category_modal.style.display = 'none'
+});
+
+addCategory_btn.addEventListener('click', addCategory_func);

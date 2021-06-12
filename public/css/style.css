@@ -237,7 +237,11 @@ img {
   background: #eceff1;
   padding: 30px 40px;
 }
-
+/* Cart modal  */
+.items-modal {
+  display: inline-block;
+  align-items: center;
+}
 /* Close Button */
 .close-modal {
   text-align: right;
