@@ -1,0 +1,29 @@
+<div class="modal" id="submit_btn" style="display: none">
+  <div class="modal-sandbox"></div>
+  <div class="modal-box">
+    <div class="modal-header">
+      <h1>Add items</h1>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="submit">
+          <Label>Select item : </Label>
+          <select name="item" id="item">
+          {{#each cart as |cart|}}
+
+          <option value="{{this.name}}">{{this.name}}</option>
+
+          {{/each}}
+        </select>
+        </form>
+          <br>
+      <label for="expiryDate" >Expiry Date(YYYY-MM-DD)</label>
+      <br>
+      <input id="expdate" type="text">
+      </form>
+
+      <button id="Add-items">Add Item</button>
+      <button id="close-modal-btn2" style="float:right;">Close!</button>
+    </div>
+  </div>
+</div>

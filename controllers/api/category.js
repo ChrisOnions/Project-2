@@ -1,21 +1,23 @@
 const router = require("express").Router();
 const { foodCategory } = require("../../models");
 
-//  C R U D
-// http://localhost:3001/api/category/
-
+//http://localhost:3001/api/category/
 // Create new Category
 
 router.post("/", async (req, res) => {
   const { is_perishable, name } = req.body;
   try {
-    const category = await foodCategory
+    const category = (await foodCategory
       .create({
         name,
         is_perishable,
       })
-      .get({ plain: true });
-    res.json(category);
+    ).get({ plain: true });
+    if (category) {
+      res.json(category);
+    } else {
+      res.status(400).json()
+    }
   } catch (err) {
     res.status(500).json(err);
   }
@@ -44,7 +46,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Delete Category
+// Delete Category by id
 
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
