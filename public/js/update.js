@@ -1,5 +1,6 @@
 const show = document.getElementById('modal-name');
-const errorText = document.getElementById('err-text')
+const errorText = document.getElementById('err-text');
+
 /** function to delete food item  */
 function deleteFoodItem(id) {
   //calling the delete api
@@ -60,7 +61,7 @@ addBtn.addEventListener('click', (event) => {
 
 /**Cancel button action on add item form */
 
-var cancelBtn = document.querySelector('.cancel-item-btn');
+var cancelBtn = document.querySelector('.cancel-item-btn2');
 cancelBtn.addEventListener('click', (event) => {
   //hide food list
   var foodList = document.querySelector('.food-item-list');
@@ -75,7 +76,8 @@ cancelBtn.addEventListener('click', (event) => {
 
 /** Add item to the pantry from the form*/
 
-var submitBtn = document.querySelector('.add-item-btn-submit');
+var submitBtn = document.querySelector('#add-item-btn-submit');
+console.log(submitBtn);
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
   var obj = {};
