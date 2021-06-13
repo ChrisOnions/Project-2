@@ -34,6 +34,8 @@ foodItems.belongsTo(foodBank, {
   foreignKey: "foodBankId",
 });
 
+// Routes for foodbank Donation 
+
 // user.belongsTo(foodBank, {
 //   foreignKey: ''
 // })

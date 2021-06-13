@@ -4,13 +4,13 @@ const createCategory = async (event) => {
   const catname = document.querySelector("").value.trim();
   const catPerish = document.querySelector("")
 
-  // if () {} Both Exist &&
+  // Post request for new Category 
   const createCat = await fetch('/api/category', {
     method: 'POST',
     body: JSON.stringify(
       {
-        catname,
-        catPerish
+        name,
+        is_perishable
       }
     ),
     headers:

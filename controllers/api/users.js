@@ -1,10 +1,13 @@
 const router = require("express").Router();
+const session = require("express-session");
 const User = require("../../models/user");
 
 // C.R.U.D
 
 // http://localhost:3001/api/users/
+
 // Create user
+
 router.post("/", async (req, res) => {
   const { name, email, password } = req.body;
   try {
@@ -15,7 +18,6 @@ router.post("/", async (req, res) => {
         password,
       })
     ).get({ plain: true });
-
     if (user) {
       req.session.save(() => {
         req.session.user_id = user.id;
@@ -28,8 +30,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-//http://localhost:3001/api/users/login
-// Read
+
+// Read user id
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -38,28 +40,22 @@ router.post("/login", async (req, res) => {
         email,
       },
     });
-    // .get({ plain: true }) should not be included here as we need the full model to run the checkPassword
-
     if (!user) {
       res
         .status(401)
         .send({ message: "Incorrect email or password, please try again" });
       return;
     }
-
     const validPassword = await user.checkPassword(password);
-
     if (!validPassword) {
       res
         .status(401)
         .send({ message: "Incorrect email or password, please try again" });
       return;
     }
-
     req.session.save(() => {
       req.session.user_id = user.id;
       req.session.logged_in = true;
-
       res.status(200).json({ email, name: user.name });
     });
   } catch (err) {
@@ -68,7 +64,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//http://localhost:3001/api/users/logout
+
+// Delete user session
 router.delete("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -78,9 +75,5 @@ router.delete("/logout", (req, res) => {
     res.status(500).end();
   }
 });
-// Update
-// Delete
-
-// Display user Data
 
 module.exports = router;
