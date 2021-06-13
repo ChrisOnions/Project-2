@@ -1,9 +1,7 @@
 const router = require("express").Router();
 const { foodCategory } = require("../../models");
 
-//  C R U D
 //http://localhost:3001/api/category/
-
 // Create new Category
 
 router.post("/", async (req, res) => {

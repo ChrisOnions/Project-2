@@ -2,8 +2,10 @@ const router = require("express").Router();
 const { foodBank } = require("../../models");
 
 // " C R U D "
+// http://localhost:3001/api/bank/
+
 // Create new foodbank
-//http://localhost:3001/api/bank/
+
 router.post("/", async (req, res) => {
   const { name, address, foodItemId, quantity, donatedDate, donatedByUserId } =
     req.body;
@@ -25,6 +27,7 @@ router.post("/", async (req, res) => {
 });
 
 // Read foodbank
+
 router.get("/", async (req, res) => {
   try {
     const Bank = await foodBank.findAll({ raw: true });
@@ -35,6 +38,7 @@ router.get("/", async (req, res) => {
 });
 
 // Get one food bank
+
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -46,6 +50,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // Update foodbank
+
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -63,6 +68,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete foodbank
+
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -83,10 +89,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 module.exports = router;
-// name,
-// address,
-// foodItemId,
-// quantity,
-// donatedDate,
-// donatedByUserId,

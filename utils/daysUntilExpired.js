@@ -1,3 +1,4 @@
+// Format the Date to a smaller readable format.
 const moment = require("moment");
 
 const daysUntilExpired = (expDate) => {
