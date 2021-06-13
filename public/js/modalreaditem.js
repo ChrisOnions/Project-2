@@ -2,8 +2,7 @@ const readdItem_btn = document.getElementById("reAddItem_btn");
 const submit_ele = document.getElementById("submit_btn");
 const addItems = document.getElementById("Add-items");
 const close_modal_btn2 = document.getElementById("close-modal-btn2");
-console.log(submit_ele);
-console.log(readdItem_btn);
+
 
 
 const addItem_func = async (event) => {

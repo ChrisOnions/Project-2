@@ -77,7 +77,6 @@ cancelBtn.addEventListener('click', (event) => {
 /** Add item to the pantry from the form*/
 
 var submitBtn = document.querySelector('#add-item-btn-submit');
-console.log(submitBtn);
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
   var obj = {};
