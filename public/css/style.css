@@ -292,7 +292,7 @@ img {
   flex-grow: 1;
   margin: 10% 0;
   background: url(/assets/white-bench.png) center no-repeat;
-  min-width: 500px;
+  min-width: 400px;
   min-height: 417px;
   align-items: center;
   justify-content: center;
