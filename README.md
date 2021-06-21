@@ -19,7 +19,7 @@
 
 - [GitHub Repository](https://github.com/ChrisOnions/E-Commerce-Backend)
 
-- [Deployed on heroku](www.website.here)
+- [Deployed on heroku](https://clever-waste.herokuapp.com/)
 
 ## Aim
 
